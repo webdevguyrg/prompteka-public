@@ -489,6 +489,7 @@
             position: relative;
             max-width: 900px;
             margin: 0 auto;
+            padding: 0 60px;
         }
 
         .gallery-container {
@@ -572,19 +573,22 @@
         }
 
         .gallery-prev {
-            left: -24px;
+            left: -50px;
         }
 
         .gallery-next {
-            right: -24px;
+            right: -50px;
         }
 
         @media (max-width: 968px) {
+            .gallery-wrapper {
+                padding: 0 20px;
+            }
             .gallery-prev {
-                left: 12px;
+                left: -10px;
             }
             .gallery-next {
-                right: 12px;
+                right: -10px;
             }
             .gallery-nav {
                 width: 40px;
