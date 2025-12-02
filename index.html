@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompteka - Your AI Prompt Library for Mac</title>
+    <meta name="description" content="Organize, search, and access your AI prompts instantly. Prompteka is the native macOS app for power users of ChatGPT, Claude, and other AI tools.">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webdevguyrg.github.io/prompteka-public/">
+    <meta property="og:title" content="Prompteka - Your AI Prompt Library for Mac">
+    <meta property="og:description" content="Organize, search, and access your AI prompts instantly. The native macOS app for AI power users.">
+    <meta property="og:image" content="https://webdevguyrg.github.io/prompteka-public/og-image.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prompteka - Your AI Prompt Library for Mac">
+    <meta name="twitter:description" content="Organize, search, and access your AI prompts instantly.">
+    <meta name="twitter:image" content="https://webdevguyrg.github.io/prompteka-public/og-image.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - Brand Colors */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --gradient-start: #6366f1;
+            --gradient-end: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--bg-gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5558e3 0%, #6d43a0 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-primary);
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.125rem;
+            border-radius: var(--radius-lg);
+        }
+
+        /* App Store Button */
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            gap: 12px;
+        }
+
+        .app-store-btn:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-store-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .app-store-btn .text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+
+        .app-store-btn .text-small {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        .app-store-btn .text-large {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .hero-title .gradient {
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        @media (max-width: 968px) {
+            .hero-description {
+                margin: 0 auto 32px;
+            }
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 968px) {
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+
+        @media (max-width: 968px) {
+            .hero-image {
+                order: -1;
+            }
+            .hero-image img {
+                max-width: 100%;
+            }
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        @media (max-width: 968px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            padding: 32px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background: var(--bg-light);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            position: relative;
+        }
+
+        @media (max-width: 968px) {
+            .steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .steps {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-gradient);
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Screenshots Section */
+        .screenshots {
+            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            overflow: hidden;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            background: #1a1a2e;
+        }
+
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-slide {
+            flex: 0 0 100%;
+            position: relative;
+        }
+
+        .gallery-slide img {
+            width: 100%;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 24px 24px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .gallery-caption h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .gallery-caption p {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Gallery Navigation Arrows */
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-nav:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .gallery-nav svg {
+            width: 20px;
+            height: 20px;
+            color: var(--text-primary);
+        }
+
+        .gallery-prev {
+            left: -24px;
+        }
+
+        .gallery-next {
+            right: -24px;
+        }
+
+        @media (max-width: 968px) {
+            .gallery-prev {
+                left: 12px;
+            }
+            .gallery-next {
+                right: 12px;
+            }
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        /* Gallery Dots */
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .gallery-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d5db;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .gallery-dot:hover {
+            background: #9ca3af;
+        }
+
+        .gallery-dot.active {
+            background: var(--bg-gradient);
+            width: 32px;
+            border-radius: 5px;
+        }
+
+        /* Gallery Thumbnails */
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .gallery-thumb {
+            width: 80px;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .gallery-thumb:hover {
+            opacity: 0.8;
+        }
+
+        .gallery-thumb.active {
+            opacity: 1;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3);
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Privacy Section */
+        .privacy {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+        }
+
+        .privacy .section-title {
+            color: white;
+        }
+
+        .privacy .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .privacy-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .privacy-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .privacy-feature {
+            text-align: center;
+        }
+
+        .privacy-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .privacy-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .privacy-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .final-cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .final-cta-title {
+                font-size: 2rem;
+            }
+        }
+
+        .final-cta-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 48px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">
+                <img src="icon.png" alt="Prompteka">
+                Prompteka
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#download" class="btn btn-primary">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        🎉 Now Available on Mac App Store
+                    </div>
+                    <h1 class="hero-title">
+                        Your AI Prompts,<br>
+                        <span class="gradient">Perfectly Organized</span>
+                    </h1>
+                    <p class="hero-description">
+                        Stop searching through notes and bookmarks. Prompteka is the native macOS app that keeps all your AI prompts organized, searchable, and instantly accessible.
+                    </p>
+                    <div class="hero-cta">
+                        <!-- APP_STORE_LINK: Replace # with your App Store URL -->
+                        <a href="#" class="app-store-btn" id="hero-download">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            <span class="text">
+                                <span class="text-small">Download on the</span>
+                                <span class="text-large">App Store</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="screenshots/hero.jpg" alt="Prompteka - AI Prompt Manager for Mac">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features">
+        <div class="container">
+            <h2 class="section-title">Everything You Need to Master AI Prompts</h2>
+            <p class="section-subtitle">
+                Designed for power users of ChatGPT, Claude, and other AI tools.
+                Prompteka helps you build and organize your prompt library.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3 class="feature-title">Folder Organization</h3>
+                    <p class="feature-description">
+                        Create folders and subfolders to organize prompts by project, topic, or workflow. Drag and drop to reorganize instantly.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Instant Search</h3>
+                    <p class="feature-description">
+                        Find any prompt in milliseconds. Search across titles, tags, or both with real-time filtering as you type.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3 class="feature-title">Global Shortcut</h3>
+                    <p class="feature-description">
+                        Press Cmd+Shift+P from anywhere on your Mac to instantly access your prompt library. No context switching needed.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Visual Customization</h3>
+                    <p class="feature-description">
+                        Choose from 269+ emoji icons and custom colors for each prompt. Filter by color to find prompts at a glance.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">One-Click Copy</h3>
+                    <p class="feature-description">
+                        Copy prompt text to clipboard with a single click. Enable auto-copy to paste immediately when you select a prompt.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3 class="feature-title">Backup & Restore</h3>
+                    <p class="feature-description">
+                        Export your entire library to JSON anytime. Restore from backup to recover your prompts or migrate to a new Mac.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section how-it-works">
+        <div class="container">
+            <h2 class="section-title">Get Started in Seconds</h2>
+            <p class="section-subtitle">
+                No complicated setup. No accounts. Just download and start organizing your prompts.
+            </p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Download</h3>
+                    <p class="step-description">Install Prompteka from the Mac App Store with one click.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Create Prompts</h3>
+                    <p class="step-description">Add your AI prompts with titles, icons, and color tags.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Organize</h3>
+                    <p class="step-description">Group prompts into folders. Drag and drop to reorganize.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Use Anywhere</h3>
+                    <p class="step-description">Press Cmd+Shift+P to access prompts from any app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section id="screenshots" class="section screenshots">
+        <div class="container">
+            <h2 class="section-title">See Prompteka in Action</h2>
+            <p class="section-subtitle">
+                A beautiful, native Mac experience designed for productivity.
+            </p>
+
+            <div class="gallery-wrapper">
+                <div class="gallery-container">
+                    <div class="gallery-slides" id="gallerySlides">
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-1.jpg" alt="Main Interface">
+                            <div class="gallery-caption">
+                                <h4>Organize Your Prompts</h4>
+                                <p>Create folders and visual tags to keep everything tidy</p>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-2.jpg" alt="Search Feature">
+                            <div class="gallery-caption">
+                                <h4>Instant Search</h4>
+                                <p>Find any prompt in milliseconds with real-time filtering</p>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-3.jpg" alt="Color Filtering">
+                            <div class="gallery-caption">
+                                <h4>Color-Coded Organization</h4>
+                                <p>Filter by color for quick visual recognition</p>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-4.jpg" alt="Emoji Picker">
+                            <div class="gallery-caption">
+                                <h4>269+ Emoji Icons</h4>
+                                <p>Personalize each prompt with expressive icons</p>
+                            </div>
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-5.jpg" alt="Settings">
+                            <div class="gallery-caption">
+                                <h4>Customizable Settings</h4>
+                                <p>Tailor the app to fit your workflow</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button class="gallery-nav gallery-prev" onclick="changeSlide(-1)" aria-label="Previous">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button class="gallery-nav gallery-next" onclick="changeSlide(1)" aria-label="Next">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Dot Indicators -->
+                <div class="gallery-dots" id="galleryDots">
+                    <button class="gallery-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+                    <button class="gallery-dot" onclick="goToSlide(1)" aria-label="Slide 2"></button>
+                    <button class="gallery-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
+                    <button class="gallery-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
+                    <button class="gallery-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+                </div>
+
+                <!-- Thumbnails -->
+                <div class="gallery-thumbnails">
+                    <button class="gallery-thumb active" onclick="goToSlide(0)">
+                        <img src="screenshots/screenshot-1.jpg" alt="Slide 1">
+                    </button>
+                    <button class="gallery-thumb" onclick="goToSlide(1)">
+                        <img src="screenshots/screenshot-2.jpg" alt="Slide 2">
+                    </button>
+                    <button class="gallery-thumb" onclick="goToSlide(2)">
+                        <img src="screenshots/screenshot-3.jpg" alt="Slide 3">
+                    </button>
+                    <button class="gallery-thumb" onclick="goToSlide(3)">
+                        <img src="screenshots/screenshot-4.jpg" alt="Slide 4">
+                    </button>
+                    <button class="gallery-thumb" onclick="goToSlide(4)">
+                        <img src="screenshots/screenshot-5.jpg" alt="Slide 5">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="section privacy">
+        <div class="container">
+            <h2 class="section-title">🔒 Your Data Stays on Your Mac</h2>
+            <p class="section-subtitle">
+                Prompteka is designed with privacy at its core. No cloud, no tracking, no compromises.
+            </p>
+            <div class="privacy-features">
+                <div class="privacy-feature">
+                    <div class="privacy-icon">💻</div>
+                    <h3 class="privacy-title">100% Local Storage</h3>
+                    <p class="privacy-description">All prompts are stored in a local SQLite database on your Mac. Nothing leaves your device.</p>
+                </div>
+                <div class="privacy-feature">
+                    <div class="privacy-icon">🚫</div>
+                    <h3 class="privacy-title">No Tracking</h3>
+                    <p class="privacy-description">Zero analytics, zero telemetry, zero data collection. We don't know what prompts you create.</p>
+                </div>
+                <div class="privacy-feature">
+                    <div class="privacy-icon">🔐</div>
+                    <h3 class="privacy-title">You Own Your Data</h3>
+                    <p class="privacy-description">Export your library anytime. Your prompts belong to you, forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="download" class="section final-cta">
+        <div class="container">
+            <h2 class="final-cta-title">Ready to Organize Your AI Workflow?</h2>
+            <p class="final-cta-description">
+                Join thousands of AI power users who keep their prompts perfectly organized with Prompteka.
+            </p>
+            <!-- APP_STORE_LINK: Replace # with your App Store URL -->
+            <a href="#" class="app-store-btn" id="footer-download">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                <span class="text">
+                    <span class="text-small">Download on the</span>
+                    <span class="text-large">App Store</span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="#" class="footer-logo">
+                <img src="icon.png" alt="Prompteka">
+                Prompteka
+            </a>
+            <div class="footer-links">
+                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="support.html" target="_blank" rel="noopener noreferrer">Support</a>
+                <a href="mailto:support@prompteka.net">Contact</a>
+            </div>
+            <p class="footer-copyright">© 2025 Robert Grow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        // Gallery functionality
+        let currentSlide = 0;
+        const totalSlides = 5;
+        const slides = document.getElementById('gallerySlides');
+        const dots = document.querySelectorAll('.gallery-dot');
+        const thumbs = document.querySelectorAll('.gallery-thumb');
+
+        function updateGallery() {
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+            thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === currentSlide));
+        }
+
+        function changeSlide(dir) {
+            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+            updateGallery();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateGallery();
+        }
+
+        // Auto-advance every 5s, pause on hover
+        let autoPlay = setInterval(() => changeSlide(1), 5000);
+        const gc = document.querySelector('.gallery-container');
+        gc.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        gc.addEventListener('mouseleave', () => autoPlay = setInterval(() => changeSlide(1), 5000));
+
+        // Keyboard & touch
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+        let touchX = 0;
+        gc.addEventListener('touchstart', (e) => touchX = e.changedTouches[0].screenX, {passive:true});
+        gc.addEventListener('touchend', (e) => {
+            const diff = touchX - e.changedTouches[0].screenX;
+            if (diff > 50) changeSlide(1);
+            if (diff < -50) changeSlide(-1);
+        }, {passive:true});
+    </script>
+</body>
+</html>
+

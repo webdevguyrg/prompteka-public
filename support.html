@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Prompteka</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #2a2a2a;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #3a3a3a;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .intro {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .faq-item {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .contact-box {
+            background: #007aff;
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .contact-box h2 {
+            color: white;
+            margin-top: 0;
+        }
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+        }
+        ul {
+            margin: 15px 0;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .version {
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prompteka Support</h1>
+    <p class="intro">Get help with Prompteka, your personal prompt library for macOS.</p>
+
+    <h2>Getting Started</h2>
+    <p>Prompteka helps you organize, search, and access all your AI prompts in one beautiful macOS app.</p>
+
+    <h3>Key Features</h3>
+    <ul>
+        <li><strong>Prompt Management:</strong> Create, edit, and organize prompts with titles, bodies, and URLs</li>
+        <li><strong>Folder Organization:</strong> Group related prompts into folders</li>
+        <li><strong>Visual Customization:</strong> Choose from 269+ emojis and custom colors</li>
+        <li><strong>Search:</strong> Instantly find prompts by searching titles and content</li>
+        <li><strong>Backup & Sync:</strong> Export/import your library as JSON files</li>
+        <li><strong>Privacy First:</strong> All data stored locally on your Mac</li>
+    </ul>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: Where is my data stored?</div>
+        <p>All your prompts and settings are stored locally on your Mac at:<br>
+        <code>~/Library/Application Support/com.prompteka.app/prompts.db</code></p>
+        <p>Nothing is sent to the cloud or our servers. Your data stays on your device.</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: How do I backup my prompts?</div>
+        <p>Use the Export feature to create a JSON backup:</p>
+        <ol>
+            <li>Click the Settings icon (gear) in the bottom left</li>
+            <li>Click "Backup & Restore"</li>
+            <li>Click "Export All Data"</li>
+            <li>Choose a location to save your backup file</li>
+        </ol>
+        <p>We recommend backing up regularly, especially before major updates.</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: How do I restore from a backup?</div>
+        <p>To restore your prompts from a JSON backup:</p>
+        <ol>
+            <li>Click the Settings icon (gear) in the bottom left</li>
+            <li>Click "Backup & Restore"</li>
+            <li>Click "Import Data"</li>
+            <li>Select your backup JSON file</li>
+        </ol>
+        <p><strong>Note:</strong> Importing will merge with existing data, not replace it.</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: Can I sync between multiple Macs?</div>
+        <p>Prompteka doesn't have built-in cloud sync (to protect your privacy), but you can manually sync:</p>
+        <ol>
+            <li>Export your data on Mac #1</li>
+            <li>Transfer the JSON file to Mac #2 (via AirDrop, iCloud Drive, USB, etc.)</li>
+            <li>Import the data on Mac #2</li>
+        </ol>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: How do I copy a prompt to use with AI tools?</div>
+        <p>Click any prompt to view its full content. The entire body is automatically copied to your clipboard when you select a prompt. Just paste (Cmd+V) into ChatGPT, Claude, or any other tool.</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: How do I organize prompts with folders?</div>
+        <p>Create folders to group related prompts:</p>
+        <ol>
+            <li>Click "New Folder" in the left sidebar</li>
+            <li>Name your folder (e.g., "Marketing", "Code", "Research")</li>
+            <li>Drag and drop prompts into folders</li>
+            <li>Or edit a prompt and select a folder from the dropdown</li>
+        </ol>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: What are the emoji categories?</div>
+        <p>Prompteka includes 269+ emojis across 13 categories:</p>
+        <ul>
+            <li>Smileys & People</li>
+            <li>Animals & Nature</li>
+            <li>Food & Drink</li>
+            <li>Travel & Places</li>
+            <li>Activities</li>
+            <li>Objects</li>
+            <li>Symbols</li>
+            <li>Flags</li>
+            <li>And 5 more categories...</li>
+        </ul>
+        <p>Use emojis to visually distinguish different types of prompts at a glance.</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question">Q: Can I customize the app's appearance?</div>
+        <p>Yes! You can:</p>
+        <ul>
+            <li>Choose custom colors for each prompt</li>
+            <li>Select from 269+ emojis as icons</li>
+            <li>Adjust the sidebar width (drag the divider)</li>
+            <li>Sort prompts by date or alphabetically</li>
+        </ul>
+    </div>
+
+    <h2>System Requirements</h2>
+    <ul>
+        <li><strong>macOS:</strong> 10.15 (Catalina) or later</li>
+        <li><strong>Disk Space:</strong> ~10 MB</li>
+        <li><strong>Internet:</strong> Not required (fully offline)</li>
+    </ul>
+
+    <h2>Troubleshooting</h2>
+
+    <h3>App won't open or crashes on launch</h3>
+    <p>Try these steps:</p>
+    <ol>
+        <li>Restart your Mac</li>
+        <li>Make sure you're running macOS 10.15 or later</li>
+        <li>If the issue persists, contact support (see below)</li>
+    </ol>
+
+    <h3>Data disappeared after update</h3>
+    <p>Your data should persist across updates, but if you're missing prompts:</p>
+    <ol>
+        <li>Check your backup files if you created any</li>
+        <li>Look for backup files in your Documents folder</li>
+        <li>Contact support with details about when the data went missing</li>
+    </ol>
+
+    <h3>Search not finding my prompts</h3>
+    <p>Search looks for matches in:</p>
+    <ul>
+        <li>Prompt titles</li>
+        <li>Prompt bodies (full text content)</li>
+        <li>Folder names</li>
+    </ul>
+    <p>Make sure your search term matches the text you're looking for. Search is case-insensitive.</p>
+
+    <div class="contact-box">
+        <h2>Need More Help?</h2>
+        <p>Can't find the answer you're looking for? We're here to help.</p>
+        <p style="font-size: 1.1em; margin-top: 20px;">
+            <strong>Email:</strong> <a href="mailto:support@prompteka.net">support@prompteka.net</a>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            We typically respond within 24-48 hours.
+        </p>
+    </div>
+
+    <p class="version" style="text-align: center; margin-top: 40px;">
+        Prompteka v1.0.0
+    </p>
+</body>
+</html>
