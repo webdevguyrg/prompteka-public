@@ -196,10 +196,68 @@
             font-size: 1.25rem;
             font-weight: 600;
         }
+
+        /* Launch Banner */
+        .launch-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            z-index: 1001;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .launch-banner-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .launch-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .launch-discount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fbbf24;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .launch-text {
+            font-weight: 500;
+        }
+
+        .launch-cta {
+            background: white;
+            color: #667eea;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .launch-cta:hover {
+            transform: scale(1.05);
+        }
+
         /* Navigation */
         .nav {
             position: fixed;
-            top: 0;
+            top: 48px;
             left: 0;
             right: 0;
             background: rgba(255, 255, 255, 0.95);
@@ -266,7 +324,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            padding: 180px 0 100px;
             background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
             overflow: hidden;
         }
@@ -817,6 +875,16 @@
     </style>
 </head>
 <body>
+    <!-- Launch Banner -->
+    <div class="launch-banner">
+        <div class="launch-banner-content">
+            <span class="launch-badge">LAUNCH SPECIAL</span>
+            <span class="launch-discount">50% OFF</span>
+            <span class="launch-text">Limited time offer - Get Prompteka at half price!</span>
+            <a href="#download" class="launch-cta">Download Now</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-content">
