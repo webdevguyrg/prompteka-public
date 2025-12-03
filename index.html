@@ -914,7 +914,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🌗</div>
-                    <h3 class="feature-title">Light & Dark Mode (Coming Soon)</h3>
+                    <h3 class="feature-title">Light & Dark Mode</h3>
                     <p class="feature-description">
                         Beautiful light and dark themes that sync with your Mac's system preferences, or choose your preferred mode manually. Eye-friendly design for working any time of day.
                     </p>
@@ -966,6 +966,13 @@
             <div class="gallery-wrapper">
                 <div class="gallery-container">
                     <div class="gallery-slides" id="gallerySlides">
+                        <div class="gallery-slide">
+                            <img src="screenshots/screenshot-0-dark.jpg" alt="Dark Mode">
+                            <div class="gallery-caption">
+                                <h4>Beautiful Dark Mode</h4>
+                                <p>Eye-friendly dark theme that syncs with your system</p>
+                            </div>
+                        </div>
                         <div class="gallery-slide">
                             <img src="screenshots/screenshot-1.jpg" alt="Main Interface">
                             <div class="gallery-caption">
@@ -1023,24 +1030,28 @@
                     <button class="gallery-dot" onclick="goToSlide(2)" aria-label="Slide 3"></button>
                     <button class="gallery-dot" onclick="goToSlide(3)" aria-label="Slide 4"></button>
                     <button class="gallery-dot" onclick="goToSlide(4)" aria-label="Slide 5"></button>
+                    <button class="gallery-dot" onclick="goToSlide(5)" aria-label="Slide 6"></button>
                 </div>
 
                 <!-- Thumbnails -->
                 <div class="gallery-thumbnails">
                     <button class="gallery-thumb active" onclick="goToSlide(0)">
-                        <img src="screenshots/screenshot-1.jpg" alt="Slide 1">
+                        <img src="screenshots/screenshot-0-dark.jpg" alt="Slide 1">
                     </button>
                     <button class="gallery-thumb" onclick="goToSlide(1)">
-                        <img src="screenshots/screenshot-2.jpg" alt="Slide 2">
+                        <img src="screenshots/screenshot-1.jpg" alt="Slide 2">
                     </button>
                     <button class="gallery-thumb" onclick="goToSlide(2)">
-                        <img src="screenshots/screenshot-3.jpg" alt="Slide 3">
+                        <img src="screenshots/screenshot-2.jpg" alt="Slide 3">
                     </button>
                     <button class="gallery-thumb" onclick="goToSlide(3)">
-                        <img src="screenshots/screenshot-4.jpg" alt="Slide 4">
+                        <img src="screenshots/screenshot-3.jpg" alt="Slide 4">
                     </button>
                     <button class="gallery-thumb" onclick="goToSlide(4)">
-                        <img src="screenshots/screenshot-5.jpg" alt="Slide 5">
+                        <img src="screenshots/screenshot-4.jpg" alt="Slide 5">
+                    </button>
+                    <button class="gallery-thumb" onclick="goToSlide(5)">
+                        <img src="screenshots/screenshot-5.jpg" alt="Slide 6">
                     </button>
                 </div>
             </div>
@@ -1127,7 +1138,7 @@
 
         // Gallery functionality
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 6;
         const slides = document.getElementById('gallerySlides');
         const dots = document.querySelectorAll('.gallery-dot');
         const thumbs = document.querySelectorAll('.gallery-thumb');
