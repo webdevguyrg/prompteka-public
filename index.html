@@ -539,7 +539,7 @@
 
         /* Screenshots Section */
         .screenshots {
-            background: linear-gradient(180deg, var(--bg-light) 0%, var(--bg-white) 100%);
+            background: #ffffff;
             overflow: hidden;
         }
 
@@ -574,25 +574,21 @@
         }
 
         .gallery-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px 24px 24px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-            color: white;
             text-align: center;
+            padding: 16px 24px;
+            color: #1a202c;
         }
 
         .gallery-caption h4 {
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 4px;
+            color: #1a202c;
         }
 
         .gallery-caption p {
             font-size: 0.875rem;
-            opacity: 0.8;
+            color: #4a5568;
         }
 
         /* Gallery Navigation Arrows */
@@ -687,10 +683,16 @@
         /* Gallery Thumbnails */
         .gallery-thumbnails {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .gallery-thumb-row {
+            display: flex;
             justify-content: center;
             gap: 12px;
-            margin-top: 24px;
-            flex-wrap: wrap;
         }
 
         .gallery-thumb {
@@ -1057,66 +1059,30 @@
                     <div class="gallery-slides" id="gallerySlides">
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-01-overview.jpg" alt="Clean Overview">
-                            <div class="gallery-caption">
-                                <h4>Beautiful Dark Mode</h4>
-                                <p>Clean folder organization with elegant dark theme</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-02-markdown-editor.jpg" alt="Markdown Editor">
-                            <div class="gallery-caption">
-                                <h4>Markdown Editor Mode</h4>
-                                <p>Edit your prompts with full Markdown support</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-03-markdown-preview.jpg" alt="Markdown Preview">
-                            <div class="gallery-caption">
-                                <h4>Rich Preview Mode</h4>
-                                <p>See your Markdown rendered beautifully in real-time</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-04-html-preview.jpg" alt="HTML Preview">
-                            <div class="gallery-caption">
-                                <h4>HTML Preview</h4>
-                                <p>Preview HTML content with live rendering</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-05-json-preview.jpg" alt="JSON Preview">
-                            <div class="gallery-caption">
-                                <h4>JSON Tree View</h4>
-                                <p>Explore JSON data with collapsible tree structure</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-06-xml-preview.jpg" alt="XML Preview">
-                            <div class="gallery-caption">
-                                <h4>XML Tree View</h4>
-                                <p>Navigate XML documents with ease</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-07-emoji-picker.jpg" alt="Emoji Picker">
-                            <div class="gallery-caption">
-                                <h4>Emoji Customization</h4>
-                                <p>Choose from 300+ emojis to personalize your prompts</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-08-search.jpg" alt="Search Feature">
-                            <div class="gallery-caption">
-                                <h4>Instant Search</h4>
-                                <p>Find any prompt in milliseconds with real-time filtering</p>
-                            </div>
                         </div>
                         <div class="gallery-slide">
                             <img src="screenshots/prompteka-09-settings.jpg" alt="Settings">
-                            <div class="gallery-caption">
-                                <h4>Customizable Settings</h4>
-                                <p>Tailor the app to fit your workflow</p>
-                            </div>
                         </div>
                     </div>
 
@@ -1133,6 +1099,12 @@
                     </button>
                 </div>
 
+                <!-- Caption (below image, above dots) -->
+                <div class="gallery-caption" id="galleryCaption">
+                    <h4>Beautiful Dark Mode</h4>
+                    <p>Clean folder organization with elegant dark theme</p>
+                </div>
+
                 <!-- Dot Indicators -->
                 <div class="gallery-dots" id="galleryDots">
                     <button class="gallery-dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
@@ -1146,35 +1118,39 @@
                     <button class="gallery-dot" onclick="goToSlide(8)" aria-label="Slide 9"></button>
                 </div>
 
-                <!-- Thumbnails -->
+                <!-- Thumbnails (4 on top, 5 on bottom) -->
                 <div class="gallery-thumbnails">
-                    <button class="gallery-thumb active" onclick="goToSlide(0)">
-                        <img src="screenshots/prompteka-01-overview.jpg" alt="Slide 1">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(1)">
-                        <img src="screenshots/prompteka-02-markdown-editor.jpg" alt="Slide 2">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(2)">
-                        <img src="screenshots/prompteka-03-markdown-preview.jpg" alt="Slide 3">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(3)">
-                        <img src="screenshots/prompteka-04-html-preview.jpg" alt="Slide 4">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(4)">
-                        <img src="screenshots/prompteka-05-json-preview.jpg" alt="Slide 5">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(5)">
-                        <img src="screenshots/prompteka-06-xml-preview.jpg" alt="Slide 6">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(6)">
-                        <img src="screenshots/prompteka-07-emoji-picker.jpg" alt="Slide 7">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(7)">
-                        <img src="screenshots/prompteka-08-search.jpg" alt="Slide 8">
-                    </button>
-                    <button class="gallery-thumb" onclick="goToSlide(8)">
-                        <img src="screenshots/prompteka-09-settings.jpg" alt="Slide 9">
-                    </button>
+                    <div class="gallery-thumb-row">
+                        <button class="gallery-thumb active" onclick="goToSlide(0)">
+                            <img src="screenshots/prompteka-01-overview.jpg" alt="Slide 1">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(1)">
+                            <img src="screenshots/prompteka-02-markdown-editor.jpg" alt="Slide 2">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(2)">
+                            <img src="screenshots/prompteka-03-markdown-preview.jpg" alt="Slide 3">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(3)">
+                            <img src="screenshots/prompteka-04-html-preview.jpg" alt="Slide 4">
+                        </button>
+                    </div>
+                    <div class="gallery-thumb-row">
+                        <button class="gallery-thumb" onclick="goToSlide(4)">
+                            <img src="screenshots/prompteka-05-json-preview.jpg" alt="Slide 5">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(5)">
+                            <img src="screenshots/prompteka-06-xml-preview.jpg" alt="Slide 6">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(6)">
+                            <img src="screenshots/prompteka-07-emoji-picker.jpg" alt="Slide 7">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(7)">
+                            <img src="screenshots/prompteka-08-search.jpg" alt="Slide 8">
+                        </button>
+                        <button class="gallery-thumb" onclick="goToSlide(8)">
+                            <img src="screenshots/prompteka-09-settings.jpg" alt="Slide 9">
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1303,11 +1279,34 @@
         const slides = document.getElementById('gallerySlides');
         const dots = document.querySelectorAll('.gallery-dot');
         const thumbs = document.querySelectorAll('.gallery-thumb');
+        const captionEl = document.getElementById('galleryCaption');
+        let autoPlayStopped = false;
+
+        // Caption data for each slide
+        const captions = [
+            { title: 'Beautiful Dark Mode', desc: 'Clean folder organization with elegant dark theme' },
+            { title: 'Markdown Editor Mode', desc: 'Edit your prompts with full Markdown support' },
+            { title: 'Rich Preview Mode', desc: 'See your Markdown rendered beautifully in real-time' },
+            { title: 'HTML Preview', desc: 'Preview HTML content with live rendering' },
+            { title: 'JSON Tree View', desc: 'Explore JSON data with collapsible tree structure' },
+            { title: 'XML Tree View', desc: 'Navigate XML documents with ease' },
+            { title: 'Emoji Customization', desc: 'Choose from 300+ emojis to personalize your prompts' },
+            { title: 'Instant Search', desc: 'Find any prompt in milliseconds with real-time filtering' },
+            { title: 'Customizable Settings', desc: 'Tailor the app to fit your workflow' }
+        ];
 
         function updateGallery() {
             slides.style.transform = `translateX(-${currentSlide * 100}%)`;
             dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
             thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === currentSlide));
+            // Update caption
+            captionEl.querySelector('h4').textContent = captions[currentSlide].title;
+            captionEl.querySelector('p').textContent = captions[currentSlide].desc;
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlay);
+            autoPlayStopped = true;
         }
 
         // Add click handlers to gallery images for lightbox
@@ -1315,9 +1314,15 @@
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
+                stopAutoPlay(); // Stop auto-scroll when viewing full screen
                 lightbox.querySelector('img').src = img.src;
                 lightbox.style.display = 'block';
             });
+        });
+
+        // Stop auto-play when thumbnail clicked
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', stopAutoPlay);
         });
 
         function changeSlide(dir) {
@@ -1330,11 +1335,15 @@
             updateGallery();
         }
 
-        // Auto-advance every 5s, pause on hover
+        // Auto-advance every 5s, pause on hover (unless permanently stopped)
         let autoPlay = setInterval(() => changeSlide(1), 5000);
         const gc = document.querySelector('.gallery-container');
         gc.addEventListener('mouseenter', () => clearInterval(autoPlay));
-        gc.addEventListener('mouseleave', () => autoPlay = setInterval(() => changeSlide(1), 5000));
+        gc.addEventListener('mouseleave', () => {
+            if (!autoPlayStopped) {
+                autoPlay = setInterval(() => changeSlide(1), 5000);
+            }
+        });
 
         // Keyboard & touch
         document.addEventListener('keydown', (e) => {
