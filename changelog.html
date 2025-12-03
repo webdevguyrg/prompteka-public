@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Prompteka</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 {
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #2a2a2a;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .intro {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .version-header {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-top: 40px;
+        }
+        .version-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #007aff;
+        }
+        .version-date {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .version-content {
+            margin-top: 20px;
+        }
+        .feature-section {
+            margin-bottom: 24px;
+        }
+        .feature-section h3 {
+            color: #3a3a3a;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+        li {
+            margin: 10px 0;
+            color: #444;
+        }
+        .back-link {
+            display: inline-block;
+            color: #007aff;
+            text-decoration: none;
+            margin-top: 40px;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge-new {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .badge-improved {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        .badge-fixed {
+            background: #fef3c7;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prompteka Changelog</h1>
+    <p class="intro">Stay up to date with the latest features, improvements, and fixes in Prompteka.</p>
+
+    <div class="version-header">
+        <div class="version-number">Version 1.1.0</div>
+        <div class="version-date">December 2024</div>
+    </div>
+
+    <div class="version-content">
+        <div class="feature-section">
+            <h3>🎨 New Features</h3>
+            <ul>
+                <li><span class="badge badge-new">New</span> <strong>Dark Mode Support</strong> - Automatic theme switching based on system preferences with manual override option</li>
+                <li><span class="badge badge-new">New</span> <strong>Sample Data Loading</strong> - Quickly explore Prompteka with pre-loaded example prompts accessible from settings</li>
+                <li><span class="badge badge-new">New</span> <strong>Purge All Data</strong> - Complete data reset option available in settings for fresh starts</li>
+                <li><span class="badge badge-new">New</span> <strong>Window Resize Cycle</strong> - Quick window resize button (↕️) to cycle between small, medium, and large window sizes</li>
+                <li><span class="badge badge-new">New</span> <strong>Clickable Logo</strong> - Click the Prompteka logo to instantly return to the home screen</li>
+            </ul>
+        </div>
+
+        <div class="feature-section">
+            <h3>✨ Improvements</h3>
+            <ul>
+                <li><span class="badge badge-improved">Enhanced</span> Welcome screen now includes link to Prompteka.net and hints about sample data</li>
+                <li><span class="badge badge-improved">Enhanced</span> Support documentation now features a professional Table of Contents for easy navigation</li>
+                <li><span class="badge badge-improved">Enhanced</span> Privacy policy and support links now open in new tabs</li>
+            </ul>
+        </div>
+
+        <div class="feature-section">
+            <h3>🐛 Bug Fixes & Polish</h3>
+            <ul>
+                <li><span class="badge badge-fixed">Fixed</span> Miscellaneous bug fixes and improvements including gallery navigation arrow visibility and download button text styling</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="version-header">
+        <div class="version-number">Version 1.0.0</div>
+        <div class="version-date">November 2024</div>
+    </div>
+
+    <div class="version-content">
+        <p><strong>Initial production launch of Prompteka</strong> - Your personal prompt library for macOS.</p>
+        <ul>
+            <li>Core prompt management (create, edit, delete, organize)</li>
+            <li>Folder organization system</li>
+            <li>Visual customization with emojis and colors</li>
+            <li>Full-text search across prompts and folders</li>
+            <li>Backup and restore functionality (JSON export/import)</li>
+            <li>Privacy-first local-only data storage</li>
+            <li>Automatic clipboard copying when selecting prompts</li>
+            <li>Customizable sidebar width</li>
+            <li>Sorting options (by date or alphabetically)</li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="back-link">← Back to Home</a>
+</body>
+</html>
