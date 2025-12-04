@@ -1,13 +1,21 @@
 {
-  "version": "1.0",
-  "timestamp": "2024-12-01T12:00:00.000Z",
+  "version": "1.1",
+  "timestamp": "2025-12-03T12:00:00.000Z",
   "data": {
     "folders": [
+      {
+        "id": "folder-demos",
+        "name": "Format Demos",
+        "parent_id": null,
+        "position": 0,
+        "created_at": 1733040000,
+        "updated_at": 1733227200
+      },
       {
         "id": "folder-ai-engineering",
         "name": "AI Engineering",
         "parent_id": null,
-        "position": 1,
+        "position": 2,
         "created_at": 1733040000,
         "updated_at": 1733040000
       },
@@ -15,7 +23,7 @@
         "id": "folder-frontend-ux",
         "name": "Frontend UX",
         "parent_id": null,
-        "position": 2,
+        "position": 3,
         "created_at": 1733040001,
         "updated_at": 1733040001
       },
@@ -23,7 +31,7 @@
         "id": "folder-backend-api",
         "name": "Backend APIs",
         "parent_id": null,
-        "position": 3,
+        "position": 4,
         "created_at": 1733040002,
         "updated_at": 1733040002
       },
@@ -31,7 +39,7 @@
         "id": "folder-video",
         "name": "Video Scripts",
         "parent_id": null,
-        "position": 4,
+        "position": 5,
         "created_at": 1733040003,
         "updated_at": 1733040003
       },
@@ -39,7 +47,7 @@
         "id": "folder-image",
         "name": "Image Prompts",
         "parent_id": null,
-        "position": 5,
+        "position": 6,
         "created_at": 1733040004,
         "updated_at": 1733040004
       },
@@ -47,7 +55,7 @@
         "id": "folder-business",
         "name": "Business Ops",
         "parent_id": null,
-        "position": 6,
+        "position": 7,
         "created_at": 1733040005,
         "updated_at": 1733040005
       },
@@ -55,7 +63,7 @@
         "id": "folder-marketing",
         "name": "Marketing Copy",
         "parent_id": null,
-        "position": 7,
+        "position": 8,
         "created_at": 1733040006,
         "updated_at": 1733040006
       },
@@ -63,12 +71,56 @@
         "id": "folder-research",
         "name": "Research Notes",
         "parent_id": null,
-        "position": 8,
+        "position": 9,
         "created_at": 1733040007,
         "updated_at": 1733040007
       }
     ],
     "prompts": [
+      {
+        "id": "demo-01",
+        "title": "Markdown Reference Guide",
+        "body": "# Comprehensive Markdown Formatting Guide\n\nMarkdown is a lightweight markup language that allows you to write formatted text using plain text syntax. This guide demonstrates all the formatting capabilities available in Prompteka's Markdown preview mode.\n\n## Text Formatting Basics\n\nMarkdown supports multiple ways to emphasize and style text:\n\n- **Bold text** using `**text**` or `__text__`\n- *Italic text* using `*text*` or `_text_`\n- ***Bold and italic*** using `***text***`\n- ~~Strikethrough~~ using `~~text~~`\n- `Inline code` using single backticks\n- Superscript using `<sup>text</sup>`: E = mc<sup>2</sup>\n- Subscript using `<sub>text</sub>`: H<sub>2</sub>O\n\n## Headings Hierarchy\n\nMarkdown supports six levels of headings using the `#` symbol:\n\n# Heading 1 (H1) - Main Title\n## Heading 2 (H2) - Major Sections\n### Heading 3 (H3) - Subsections\n#### Heading 4 (H4) - Minor Subsections\n##### Heading 5 (H5) - Detailed Points\n###### Heading 6 (H6) - Fine Details\n\n## Lists and Organization\n\n### Unordered Lists\n\nCreate bullet points using `-`, `*`, or `+`:\n\n- First item\n- Second item\n- Third item\n  - Nested item 2.1\n  - Nested item 2.2\n    - Deep nested item 2.2.1\n    - Deep nested item 2.2.2\n- Fourth item\n\n### Ordered Lists\n\nCreate numbered lists using numbers followed by periods:\n\n1. First step\n2. Second step\n3. Third step\n   1. Substep 3.1\n   2. Substep 3.2\n4. Fourth step\n\n### Task Lists\n\nCreate interactive checkboxes:\n\n- [x] Completed task\n- [x] Another completed task\n- [ ] Pending task\n- [ ] Future task\n\n## Code Blocks\n\nMarkdown supports syntax-highlighted code blocks:\n\n### JavaScript Example\n\n```javascript\n// Function to calculate fibonacci numbers\nfunction fibonacci(n) {\n  if (n <= 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n}\n\nconst result = fibonacci(10);\nconsole.log(`Fibonacci(10) = ${result}`);\n```\n\n### Python Example\n\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n\nnumbers = [3, 6, 8, 10, 1, 2, 1]\nprint(quicksort(numbers))\n```\n\n### SQL Example\n\n```sql\nSELECT \n  users.name,\n  COUNT(prompts.id) as prompt_count,\n  AVG(prompts.length) as avg_length\nFROM users\nLEFT JOIN prompts ON users.id = prompts.user_id\nWHERE users.active = true\nGROUP BY users.name\nHAVING prompt_count > 10\nORDER BY prompt_count DESC;\n```\n\n## Tables\n\nCreate structured data tables with alignment:\n\n| Feature | Status | Priority | Notes |\n|---------|:------:|:--------:|-------|\n| Markdown Support | ✅ | High | Full support |\n| HTML Rendering | ✅ | High | Sandboxed |\n| JSON Tree | ✅ | Medium | Collapsible |\n| XML Viewer | ✅ | Medium | Attribute display |\n| Code Highlighting | ✅ | High | Multi-language |\n| Tables | ✅ | Medium | Alignment support |\n| Task Lists | ✅ | Low | Interactive |\n\n## Blockquotes\n\nEmphasize quotations or important notes:\n\n> \"The best way to predict the future is to invent it.\"\n> — Alan Kay\n\n> **Note:** Blockquotes can contain multiple paragraphs.\n>\n> They can also contain other Markdown formatting like **bold**, *italic*, and `code`.\n\n### Nested Blockquotes\n\n> This is a first-level quote.\n>\n> > This is a nested quote.\n> >\n> > > And this is a deeply nested quote.\n\n## Links and References\n\nCreate hyperlinks using various formats:\n\n- Inline link: [Prompteka Website](https://prompteka.net)\n- Link with title: [Documentation](https://prompteka.net/docs \"Hover for title\")\n- Reference link: [Reference][1]\n- Automatic URL: <https://prompteka.net>\n- Email: <support@prompteka.net>\n\n[1]: https://prompteka.net/reference \"Reference Link\"\n\n## Horizontal Rules\n\nSeparate content sections:\n\n---\n\n***\n\n___\n\n## Images\n\nEmbed images with alt text:\n\n![Prompteka Logo](https://prompteka.net/logo.png \"Prompteka Logo\")\n\n## Escape Characters\n\nUse backslash to escape special characters:\n\n\\*Not italic\\*  \n\\**Not bold\\**  \n\\[Not a link\\]\n\n## HTML Support\n\nMarkdown supports inline HTML for advanced formatting:\n\n<div style=\"background: #f0f0f0; padding: 20px; border-radius: 8px;\">\n  <strong>Pro Tip:</strong> You can mix HTML with Markdown for enhanced styling.\n</div>\n\n<details>\n<summary>Click to expand</summary>\nThis content is hidden until clicked!\n</details>\n\n## Best Practices\n\n1. **Use headings hierarchically**: Start with H1 and work down\n2. **Add blank lines**: Separate blocks with blank lines for readability\n3. **Indent nested lists**: Use 2-4 spaces for nested items\n4. **Use code blocks**: Specify language for syntax highlighting\n5. **Keep tables simple**: Complex tables are harder to maintain\n6. **Test your formatting**: Preview before sharing\n\n## Common Use Cases\n\n### Documentation\n\nMarkdown is perfect for technical documentation, README files, and API guides.\n\n### Note-Taking\n\nQuickly capture ideas with formatting that enhances readability.\n\n### Content Creation\n\nWrite blog posts, articles, and content that converts easily to HTML.\n\n### Prompt Engineering\n\nStructure AI prompts with clear sections, examples, and formatting guidelines.\n\n---\n\n**Pro Tip**: Use Prompteka's preview mode (📄 button) to see your Markdown rendered in real-time!",
+        "icon": "📝",
+        "color": "#3B82F6",
+        "folder_id": "folder-demos",
+        "url": "",
+        "created_at": 1733227200,
+        "updated_at": 1733227200
+      },
+      {
+        "id": "demo-02",
+        "title": "HTML Dashboard Demo",
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Prompteka Analytics Dashboard</title>\n    <style>\n        * { margin: 0; padding: 0; box-sizing: border-box; }\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            padding: 40px 20px;\n            min-height: 100vh;\n        }\n        .container { max-width: 1200px; margin: 0 auto; }\n        .header {\n            background: rgba(255, 255, 255, 0.95);\n            backdrop-filter: blur(10px);\n            border-radius: 16px;\n            padding: 30px;\n            margin-bottom: 30px;\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n        }\n        .header h1 {\n            color: #1a202c;\n            font-size: 2.5em;\n            margin-bottom: 10px;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            -webkit-background-clip: text;\n            -webkit-text-fill-color: transparent;\n        }\n        .stats-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n            gap: 20px;\n            margin-bottom: 30px;\n        }\n        .stat-card {\n            background: rgba(255, 255, 255, 0.95);\n            border-radius: 12px;\n            padding: 25px;\n            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);\n            transition: transform 0.2s;\n        }\n        .stat-card:hover {\n            transform: translateY(-4px);\n        }\n        .stat-icon {\n            font-size: 2.5em;\n            margin-bottom: 15px;\n        }\n        .stat-value {\n            font-size: 2.2em;\n            font-weight: 700;\n            color: #1a202c;\n        }\n        .stat-label {\n            color: #718096;\n            font-size: 0.95em;\n            text-transform: uppercase;\n        }\n        .features-section {\n            background: rgba(255, 255, 255, 0.95);\n            border-radius: 16px;\n            padding: 35px;\n            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);\n        }\n        .feature-grid {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 20px;\n        }\n        .feature-item {\n            display: flex;\n            gap: 15px;\n            padding: 20px;\n            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);\n            border-radius: 10px;\n            transition: all 0.3s;\n        }\n        .feature-item:hover {\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            transform: scale(1.02);\n        }\n        .feature-item:hover .feature-title,\n        .feature-item:hover .feature-desc {\n            color: white;\n        }\n        .feature-icon {\n            font-size: 2.5em;\n        }\n        .feature-title {\n            font-size: 1.2em;\n            font-weight: 600;\n            color: #1a202c;\n            margin-bottom: 8px;\n        }\n        .feature-desc {\n            color: #4a5568;\n            line-height: 1.6;\n        }\n        .progress-section {\n            margin-top: 30px;\n        }\n        .progress-item {\n            margin-bottom: 20px;\n        }\n        .progress-header {\n            display: flex;\n            justify-content: space-between;\n            margin-bottom: 8px;\n        }\n        .progress-bar {\n            height: 10px;\n            background: #e2e8f0;\n            border-radius: 10px;\n            overflow: hidden;\n        }\n        .progress-fill {\n            height: 100%;\n            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);\n        }\n        .cta-button {\n            display: inline-block;\n            margin-top: 25px;\n            padding: 14px 32px;\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);\n            color: white;\n            border-radius: 8px;\n            font-weight: 600;\n            text-decoration: none;\n        }\n    </style>\n</head>\n<body>\n    <div class=\"container\">\n        <div class=\"header\">\n            <h1>🎨 Prompteka Analytics</h1>\n            <p>Your comprehensive prompt management dashboard</p>\n        </div>\n        <div class=\"stats-grid\">\n            <div class=\"stat-card\">\n                <span class=\"stat-icon\">📝</span>\n                <div class=\"stat-value\">247</div>\n                <div class=\"stat-label\">Total Prompts</div>\n            </div>\n            <div class=\"stat-card\">\n                <span class=\"stat-icon\">📁</span>\n                <div class=\"stat-value\">18</div>\n                <div class=\"stat-label\">Folders</div>\n            </div>\n            <div class=\"stat-card\">\n                <span class=\"stat-icon\">🏷️</span>\n                <div class=\"stat-value\">42</div>\n                <div class=\"stat-label\">Tags Used</div>\n            </div>\n            <div class=\"stat-card\">\n                <span class=\"stat-icon\">⚡</span>\n                <div class=\"stat-value\">1,834</div>\n                <div class=\"stat-label\">Searches</div>\n            </div>\n        </div>\n        <div class=\"features-section\">\n            <h2>🚀 Key Features</h2>\n            <div class=\"feature-grid\">\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">🔒</div>\n                    <div>\n                        <div class=\"feature-title\">Private & Local</div>\n                        <div class=\"feature-desc\">All data stored locally with zero cloud dependencies</div>\n                    </div>\n                </div>\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">🎯</div>\n                    <div>\n                        <div class=\"feature-title\">Instant Search</div>\n                        <div class=\"feature-desc\">Find any prompt in milliseconds</div>\n                    </div>\n                </div>\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">🎨</div>\n                    <div>\n                        <div class=\"feature-title\">Rich Formatting</div>\n                        <div class=\"feature-desc\">Markdown, HTML, JSON, XML preview modes</div>\n                    </div>\n                </div>\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">📂</div>\n                    <div>\n                        <div class=\"feature-title\">Smart Organization</div>\n                        <div class=\"feature-desc\">Nested folders, color coding, emoji icons</div>\n                    </div>\n                </div>\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">💾</div>\n                    <div>\n                        <div class=\"feature-title\">Backup & Export</div>\n                        <div class=\"feature-desc\">One-click backup to JSON</div>\n                    </div>\n                </div>\n                <div class=\"feature-item\">\n                    <div class=\"feature-icon\">⌨️</div>\n                    <div>\n                        <div class=\"feature-title\">Keyboard First</div>\n                        <div class=\"feature-desc\">Global shortcuts for power users</div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"progress-section\">\n                <h2>📊 Usage Statistics</h2>\n                <div class=\"progress-item\">\n                    <div class=\"progress-header\">\n                        <span>Storage Used</span>\n                        <span>2.4 MB / 100 MB</span>\n                    </div>\n                    <div class=\"progress-bar\">\n                        <div class=\"progress-fill\" style=\"width: 2.4%;\"></div>\n                    </div>\n                </div>\n                <div class=\"progress-item\">\n                    <div class=\"progress-header\">\n                        <span>Folders Organized</span>\n                        <span>18 / 50</span>\n                    </div>\n                    <div class=\"progress-bar\">\n                        <div class=\"progress-fill\" style=\"width: 36%;\"></div>\n                    </div>\n                </div>\n                <div class=\"progress-item\">\n                    <div class=\"progress-header\">\n                        <span>Prompts Tagged</span>\n                        <span>189 / 247</span>\n                    </div>\n                    <div class=\"progress-bar\">\n                        <div class=\"progress-fill\" style=\"width: 76.5%;\"></div>\n                    </div>\n                </div>\n            </div>\n            <a href=\"#\" class=\"cta-button\">Get Started →</a>\n        </div>\n    </div>\n</body>\n</html>",
+        "icon": "🌐",
+        "color": "#F59E0B",
+        "folder_id": "folder-demos",
+        "url": "",
+        "created_at": 1733227201,
+        "updated_at": 1733227201
+      },
+      {
+        "id": "demo-03",
+        "title": "JSON Configuration Example",
+        "body": "{\n  \"application\": {\n    \"name\": \"Prompteka\",\n    \"version\": \"1.2.0\",\n    \"environment\": \"production\",\n    \"build\": {\n      \"number\": 42,\n      \"timestamp\": \"2025-12-03T12:00:00Z\",\n      \"git_commit\": \"a3f8d92\",\n      \"branch\": \"main\"\n    }\n  },\n  \"database\": {\n    \"engine\": \"sqlite\",\n    \"path\": \"~/Library/Application Support/prompteka/prompts.db\",\n    \"settings\": {\n      \"journal_mode\": \"WAL\",\n      \"cache_size\": 10000,\n      \"temp_store\": \"MEMORY\"\n    },\n    \"migrations\": {\n      \"enabled\": true,\n      \"version\": 12,\n      \"history\": [\n        {\"version\": 1, \"description\": \"Initial schema\"},\n        {\"version\": 12, \"description\": \"Add emoji icons\"}\n      ]\n    }\n  },\n  \"ui\": {\n    \"theme\": {\n      \"default\": \"system\",\n      \"colors\": {\n        \"light\": {\n          \"primary\": \"#3B82F6\",\n          \"background\": \"#FFFFFF\",\n          \"text\": \"#1F2937\"\n        },\n        \"dark\": {\n          \"primary\": \"#60A5FA\",\n          \"background\": \"#111827\",\n          \"text\": \"#F9FAFB\"\n        }\n      }\n    },\n    \"window\": {\n      \"default_size\": {\"width\": 1200, \"height\": 800},\n      \"remember_position\": true\n    },\n    \"editor\": {\n      \"font_family\": \"SF Mono, Monaco\",\n      \"font_size\": 14,\n      \"line_height\": 1.6,\n      \"word_wrap\": true\n    }\n  },\n  \"features\": {\n    \"search\": {\n      \"enabled\": true,\n      \"full_text\": true,\n      \"shortcuts\": {\n        \"focus\": \"Cmd+F\",\n        \"next\": \"Cmd+G\"\n      }\n    },\n    \"preview\": {\n      \"enabled\": true,\n      \"formats\": [\"markdown\", \"html\", \"json\", \"xml\"],\n      \"markdown\": {\n        \"syntax_highlighting\": true,\n        \"tables\": true,\n        \"emoji\": true\n      },\n      \"html\": {\n        \"sandboxed\": true,\n        \"allow_scripts\": false\n      }\n    },\n    \"organization\": {\n      \"folders\": {\n        \"enabled\": true,\n        \"nested\": true,\n        \"max_depth\": 5\n      },\n      \"tags\": {\n        \"enabled\": true,\n        \"color_coded\": true\n      },\n      \"icons\": {\n        \"total_available\": 269,\n        \"categories\": 13\n      }\n    }\n  },\n  \"performance\": {\n    \"cache\": {\n      \"enabled\": true,\n      \"size_mb\": 50\n    },\n    \"debounce\": {\n      \"search_ms\": 300,\n      \"auto_save_ms\": 500\n    }\n  }\n}",
+        "icon": "📊",
+        "color": "#10B981",
+        "folder_id": "folder-demos",
+        "url": "",
+        "created_at": 1733227202,
+        "updated_at": 1733227202
+      },
+      {
+        "id": "demo-04",
+        "title": "XML API Response Example",
+        "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<api_response version=\"2.0\" timestamp=\"2025-12-03T12:00:00Z\" status=\"success\">\n  <metadata>\n    <request_id>req_7f8d9a6b2c4e</request_id>\n    <endpoint>/api/v2/prompts</endpoint>\n    <method>GET</method>\n    <execution_time_ms>42</execution_time_ms>\n    <rate_limit>\n      <limit>1000</limit>\n      <remaining>847</remaining>\n      <reset_at>2025-12-03T13:00:00Z</reset_at>\n    </rate_limit>\n  </metadata>\n  <pagination>\n    <current_page>1</current_page>\n    <total_pages>25</total_pages>\n    <total_items>247</total_items>\n    <has_next>true</has_next>\n  </pagination>\n  <data>\n    <prompts count=\"10\">\n      <prompt id=\"ai-01\" type=\"system\" featured=\"true\">\n        <title>System Prompt: Calm Assistant</title>\n        <metadata>\n          <folder_id>folder-ai-engineering</folder_id>\n          <folder_name>AI Engineering</folder_name>\n          <icon>⭐</icon>\n          <color>#FBBF24</color>\n        </metadata>\n        <timestamps>\n          <created_at>2024-12-01T10:00:00Z</created_at>\n          <updated_at>2024-12-01T10:00:00Z</updated_at>\n          <last_accessed>2025-12-03T11:45:00Z</last_accessed>\n        </timestamps>\n        <statistics>\n          <view_count>156</view_count>\n          <copy_count>42</copy_count>\n          <character_count>847</character_count>\n        </statistics>\n        <tags>\n          <tag id=\"tag-001\" color=\"#3B82F6\">system-prompt</tag>\n          <tag id=\"tag-002\" color=\"#10B981\">assistant</tag>\n        </tags>\n      </prompt>\n      <prompt id=\"ux-01\" type=\"template\">\n        <title>UX Audit (Hero)</title>\n        <metadata>\n          <folder_id>folder-frontend-ux</folder_id>\n          <icon>⭐</icon>\n        </metadata>\n        <statistics>\n          <view_count>94</view_count>\n        </statistics>\n      </prompt>\n    </prompts>\n  </data>\n  <aggregations>\n    <by_folder>\n      <folder id=\"folder-ai-engineering\" name=\"AI Engineering\" count=\"45\"/>\n      <folder id=\"folder-frontend-ux\" name=\"Frontend UX\" count=\"38\"/>\n    </by_folder>\n    <statistics>\n      <total_prompts>247</total_prompts>\n      <total_folders>8</total_folders>\n      <average_word_count>156</average_word_count>\n    </statistics>\n  </aggregations>\n</api_response>",
+        "icon": "🗂️",
+        "color": "#EC4899",
+        "folder_id": "folder-demos",
+        "url": "",
+        "created_at": 1733227203,
+        "updated_at": 1733227203
+      },
       {
         "id": "ai-01",
         "title": "System Prompt: Calm Assistant",
@@ -159,14 +211,14 @@
       },
       {
         "id": "ai-09",
-        "title": "Chain of Thought (Short)",
-        "body": "Use 3 bullet reasoning steps, then a one-sentence answer. Never expose internal notes.",
+        "title": "Chain of Thought Reasoning Framework",
+        "body": "# Chain of Thought Reasoning Framework\n\n## Purpose\n\nThis prompt structure guides systematic, transparent reasoning that breaks down complex problems into clear, logical steps while maintaining focus on the user's actual question.\n\n## Structure\n\nWhen responding to analytical questions, problems, or requests requiring systematic thinking:\n\n### 1. PROBLEM DECOMPOSITION\n\nBegin by breaking the question into 2-3 key components that must be addressed:\n\n- Identify the core question or goal\n- Note any constraints or requirements\n- Recognize assumptions that need validation\n\n### 2. REASONING STEPS (3 MAXIMUM)\n\nPresent your thinking process in exactly 3 bullet points. Each step should:\n\n- Build logically on the previous step\n- Be specific and concrete (avoid vague statements)\n- Lead toward the answer\n- Use \"because\" or \"therefore\" to show causation\n\n**Example Format:**\n\n- **Step 1:** [First observation or deduction] because [evidence/reasoning]\n- **Step 2:** Therefore, [second-level insight] which means [implication]\n- **Step 3:** Given this, [final logical step] leading to [conclusion]\n\n### 3. CONCISE ANSWER\n\nAfter the 3 reasoning steps, provide:\n\n- **One sentence** that directly answers the question\n- Must be actionable or decisive (not \"it depends\" without specifics)\n- Reference the chain of reasoning implicitly (\"Based on...\")\n\n## Guidelines\n\n### What to Include\n\n✅ Logical connections between steps (\"because,\" \"therefore,\" \"given that\")\n✅ Specific details from the question\n✅ Recognition of trade-offs or edge cases when critical\n✅ Clear cause-and-effect relationships\n\n### What to Avoid\n\n❌ Never expose \"thinking notes\" or meta-commentary (\"I'm thinking about...\")\n❌ Don't repeat the user's question back\n❌ Avoid hedging language (\"probably,\" \"maybe\") unless uncertainty is the point\n❌ Don't make a 4th reasoning step\n❌ No explanations after the final answer\n\n### Tone\n\n- Confident but not arrogant\n- Direct and clear\n- Professional without being stiff\n- Assume the reader is intelligent\n\n## Examples\n\n### Example 1: Technical Decision\n\n**User:** Should I use REST or GraphQL for my mobile app API?\n\n**Response:**\n\n- **Step 1:** REST provides simpler caching and is universally supported by mobile HTTP clients, reducing integration complexity\n- **Step 2:** GraphQL eliminates over-fetching and under-fetching, which directly impacts mobile data usage and battery life\n- **Step 3:** Given mobile apps need predictable queries with stable schemas, GraphQL's upfront complexity pays off through bandwidth savings\n\n**Answer:** Use GraphQL if your mobile app makes frequent, varied data requests; stick with REST if your use cases are simple and your API schema is stable.\n\n### Example 2: Problem Diagnosis\n\n**User:** My Python script runs fine locally but times out in production. Why?\n\n**Response:**\n\n- **Step 1:** Local environments often have faster I/O, unlimited timeouts, and different network latency, masking performance issues\n- **Step 2:** Production timeout suggests a network call, database query, or file operation is taking longer than expected under load\n- **Step 3:** Since local dev typically uses smaller datasets and no concurrent users, production load amplifies any O(n²) operations or unindexed queries\n\n**Answer:** Profile your production environment to identify slow database queries or external API calls, then add timeouts and optimize the bottleneck.\n\n### Example 3: Design Choice\n\n**User:** Should error messages be shown inline or in a toast notification?\n\n**Response:**\n\n- **Step 1:** Inline errors are contextual and persistent, reducing cognitive load by appearing exactly where the problem occurred\n- **Step 2:** Toast notifications can be missed if users aren't looking at the screen and disappear automatically, causing confusion\n- **Step 3:** For form validation errors, users need to reference the message while correcting their input, requiring persistent display\n\n**Answer:** Use inline errors for form validation and data entry; reserve toasts for transient system notifications like save confirmations.\n\n## Common Mistakes to Avoid\n\n1. **Too many steps:** Keep it to 3. If you need more, your steps aren't high-level enough.\n2. **Repeating information:** Each step should add new insight.\n3. **Concluding mid-chain:** Save the answer for after step 3.\n4. **Vague reasoning:** Replace \"This is better\" with \"This is better *because* [specific reason].\"\n5. **Missing causal links:** Always show *why* each step leads to the next.\n\n## When Not to Use This Format\n\n- Simple factual questions (\"What is the capital of France?\")\n- Creative writing requests\n- Brainstorming sessions requiring many options\n- When user explicitly requests different format\n\n---\n\n**Meta-Note:** This framework works best for analytical, decision-oriented, or diagnostic questions where reasoning transparency builds trust and aids learning.",
         "icon": "🧾",
         "color": "#C084FC",
         "folder_id": "folder-ai-engineering",
         "url": "",
         "created_at": 1733040108,
-        "updated_at": 1733040108
+        "updated_at": 1733227200
       },
       {
         "id": "ai-10",
@@ -214,14 +266,14 @@
       },
       {
         "id": "ux-04",
-        "title": "Component Copy Pass",
-        "body": "Rewrite component copy to be action-oriented. Return: old text → new text (concise). Limit to 5 items.",
+        "title": "Component Copy Writing Guide",
+        "body": "# Component Copy Writing Guide\n\nTransform generic component copy into action-oriented, user-focused microcopy.\n\n## Principles\n\n### 1. Action-Oriented Language\n❌ \"Settings\" → ✅ \"Customize your experience\"\n❌ \"Help\" → ✅ \"Get instant support\"  \n❌ \"Profile\" → ✅ \"Manage your account\"\n\n### 2. Benefit-Driven\n❌ \"Export Data\" → ✅ \"Download your prompts\"\n❌ \"Search\" → ✅ \"Find anything instantly\"\n❌ \"Backup\" → ✅ \"Never lose your work\"\n\n### 3. Specificity Over Vagueness\n❌ \"Manage items\" → ✅ \"Organize 247 prompts\"\n❌ \"View more\" → ✅ \"See all 18 folders\"\n❌ \"Start now\" → ✅ \"Create your first prompt\"\n\n## Common UI Patterns\n\n### Empty States\nBefore: \"No items\"\nAfter: \"No prompts yet. Create one to get started!\"\n\nComponents:\n- Clear explanation\n- Primary action\n- Optional visual/example\n\n### Error Messages  \nBefore: \"Error 404\"\nAfter: \"We couldn't find that prompt. It may have been deleted.\"\n\nStructure:\n1. What happened\n2. Why it happened\n3. What to do next\n\n### Confirmation Dialogs\nBefore: \"Are you sure?\"\nAfter: \"Delete this prompt? This can't be undone.\"\n\nBest Practices:\n- State consequence clearly\n- Use specific language\n- Make destructive actions red\n\n### Button Copy\n\n| Context | Generic | Improved |\n|---------|---------|----------|\n| Form | Submit | Save prompt |\n| Account | Sign up | Start organizing |\n| Trial | Upgrade | Unlock all features |\n| Cancel | Cancel | Keep subscription |\n| Delete | Delete | Remove permanently |\n\n### Placeholder Text\nBefore: \"Enter text here\"\nAfter: \"e.g., Write a system prompt for a coding assistant\"\n\nGuidelines:\n- Show realistic examples\n- Demonstrate format\n- Inspire without constraining\n\n## Tone Guidelines\n\n### Professional but Friendly\n❌ \"Your request has been processed\"\n✅ \"All set! Your prompt is saved\"\n\n### Concise but Complete\n❌ \"This feature allows you to create, edit, and delete prompts\"\n✅ \"Create and manage prompts\"\n\n### Encouraging but Not Patronizing\n❌ \"Wow! Great job!\"\n✅ \"First prompt created\"\n\n## Checklist\n\n- [ ] Scannable? (2-second grasp)\n- [ ] Actionable? (Tells what to do/get)\n- [ ] Specific? (Names concrete objects)\n- [ ] Concise? (No extra words)\n- [ ] Consistent? (Matches surrounding tone)\n\n## 5-Item Rewrite Exercise\n\n1. OLD: \"View details\" → NEW: \"See full prompt\"\n2. OLD: \"Settings updated\" → NEW: \"Changes saved\"\n3. OLD: \"Loading...\" → NEW: \"Loading your prompts...\"\n4. OLD: \"No results\" → NEW: \"No matches. Try different keywords\"\n5. OLD: \"Click here\" → NEW: \"Browse all prompts\"\n\nKeep rewrites under 5 items for focus.",
         "icon": "🧩",
         "color": "#F59E0B",
         "folder_id": "folder-frontend-ux",
         "url": "",
         "created_at": 1733040203,
-        "updated_at": 1733040203
+        "updated_at": 1733227200
       },
       {
         "id": "ux-05",
@@ -324,14 +376,14 @@
       },
       {
         "id": "api-04",
-        "title": "API Test Matrix",
-        "body": "Generate test cases: happy path, auth fail, validation fail, rate limit, 500 fallback. Output table.",
+        "title": "API Test Matrix Framework",
+        "body": "# API Test Matrix Framework\n\nGenerate comprehensive test cases for API endpoints using this systematic approach.\n\n## Test Categories\n\n### 1. Happy Path Tests\nPurpose: Verify core functionality works as expected\n\n- Valid authentication token\n- Correct request format\n- All required fields present\n- Expected 200/201 response\n- Response schema matches documentation\n- Data persistence confirmed\n\nExample:\nPOST /api/prompts\nHeaders: Authorization: Bearer <valid_token>\nBody: {\"title\": \"Test\", \"body\": \"Content\"}\nExpected: 201 Created with prompt object\n\n### 2. Authentication Failures\nPurpose: Ensure proper auth enforcement\n\nTest Cases:\n- No token → 401 Unauthorized\n- Invalid token → 401 Unauthorized  \n- Wrong permissions → 403 Forbidden\n- Revoked token → 401 Unauthorized\n\n### 3. Validation Errors\nPurpose: Test input validation\n\n- Missing required fields → 400 Bad Request\n- Invalid data types → 400\n- Field length violations → 400\n- Invalid enum values → 400\n- Malformed JSON → 400\n- SQL injection attempts → 400 (sanitized)\n\nError Response Format:\n{\n  \"error\": \"validation_error\",\n  \"message\": \"Title is required\",\n  \"field\": \"title\"\n}\n\n### 4. Rate Limiting\nPurpose: Verify rate limit enforcement\n\n- Send requests at threshold → 200\n- Exceed limit → 429 Too Many Requests  \n- Check X-RateLimit headers\n- Verify limit resets after window\n- Test per-endpoint vs global limits\n\n### 5. Server Error Handling\nPurpose: Ensure graceful degradation\n\n- Database failure → 503 Service Unavailable\n- External API timeout → 504 Gateway Timeout\n- Unhandled exception → 500 Internal Server Error\n- Partial failure → 207 Multi-Status\n\n### 6. Idempotency\nPurpose: Verify safe retry behavior\n\n- POST same data twice → 409 Conflict or idempotency key\n- PUT/PATCH same data → No state change\n- DELETE non-existent → 404 or 204\n- GET has no side effects\n\n### 7. Edge Cases\nPurpose: Test boundary conditions\n\n- Empty strings in optional fields\n- Very large payloads\n- Unicode and special characters  \n- Concurrent requests\n- Pagination boundaries\n\n## Test Matrix Template\n\n| Endpoint | Method | Test Case | Input | Status | Body | Notes |\n|----------|--------|-----------|-------|--------|------|-------|\n| /prompts | POST | Happy path | Valid | 201 | Prompt | - |\n| /prompts | POST | No auth | None | 401 | Error | - |\n| /prompts | POST | Missing field | No title | 400 | Error | title |\n| /prompts | GET | Rate limit | 101st | 429 | Error | 100/min |\n| /prompts/:id | DELETE | Not found | Bad ID | 404 | Error | - |\n\n## Automation Tips\n\n- Use test fixtures for consistent data\n- Seed database before each suite\n- Clean up after each run  \n- Mock external dependencies\n- Test in isolation\n- Parameterize for multiple scenarios\n\n## Prioritization\n\nP0 (Must Pass): Happy path, auth, critical validation\nP1 (Should Pass): Rate limiting, errors, edge cases  \nP2 (Nice to Have): Idempotency, performance, stress\n\nOutput this matrix as a table or JSON for documentation.",
         "icon": "🧪",
         "color": "#8B5CF6",
         "folder_id": "folder-backend-api",
         "url": "",
         "created_at": 1733040303,
-        "updated_at": 1733040303
+        "updated_at": 1733227200
       },
       {
         "id": "api-05",
@@ -456,14 +508,14 @@
       },
       {
         "id": "vid-06",
-        "title": "A/B Hook Test",
-        "body": "Write 3 hook variants and predict which audience each suits: makers, PMs, engineers.",
+        "title": "Video Hook A/B Testing",
+        "body": "# Video Hook A/B Testing Framework\n\nCreate compelling video hooks tailored to different audiences.\n\n## Hook Variant Structure\n\nFor each:\n1. Opening Line (7-9 words)\n2. Pain Point\n3. Audience Fit\n4. Emotional Tone\n5. Predicted Performance\n\n## Example: Prompteka Video\n\n### Hook A: Pain-Agitation\n**Opening:** \"Tired of losing your best AI prompts?\"\n\n**Pain:** Disorganization, scattered notes\n\n**Audience Fit:**\n- Makers ✅✅✅ (daily pain)\n- PMs ✅✅ (moderate)\n- Engineers ✅ (less acute)\n\n**Tone:** Frustrated → Relieved\n\n**Predicted CTR:**\n- Makers: 8.5% (high resonance)\n- PMs: 6.2% (aware but less urgent)\n- Engineers: 5.1% (have workarounds)\n\n**Rationale:** Makers feel this daily. PMs can delegate. Engineers have scripts.\n\n---\n\n### Hook B: Curiosity-Gap\n**Opening:** \"Here's how I manage 500+ AI prompts\"\n\n**Pain:** Lack of proven solution\n\n**Audience Fit:**\n- Makers ✅✅\n- PMs ✅✅✅ (seeking best practices)\n- Engineers ✅✅ (technical curiosity)\n\n**Tone:** Curious → Intrigued\n\n**Predicted CTR:**\n- Makers: 7.1% (interested but less urgent)\n- PMs: 9.3% (workflow optimization)\n- Engineers: 7.8% (wants to see implementation)\n\n**Rationale:** PMs love \"how I\" content. Engineers want technical details.\n\n---\n\n### Hook C: Aspirational\n**Opening:** \"Build a private AI prompt library\"\n\n**Pain:** Desire for control, privacy\n\n**Audience Fit:**\n- Makers ✅✅✅ (autonomy)\n- PMs ✅ (less hands-on)\n- Engineers ✅✅✅ (privacy + control)\n\n**Tone:** Empowered → Motivated\n\n**Predicted CTR:**\n- Makers: 8.9% (building appeal)\n- PMs: 4.7% (won't implement)\n- Engineers: 9.1% (privacy resonates)\n\n**Rationale:** Engineers and makers value self-hosting. PMs less hands-on.\n\n---\n\n## Testing Methodology\n\n### 1. A/B Split by Audience\n- Run all 3 simultaneously\n- Segment by platform\n- 1,000+ views per variant\n- Track CTR, watch time, completion\n\n### 2. Sequential\n- Hook A for 48 hours\n- Analyze top 20% demographics\n- Adjust Hook B\n- Iterate\n\n### 3. Multivariate\n- Hooks × Thumbnails\n- 9 combinations\n- Needs 10K+ views\n\n## Optimization Tips\n\n- Specificity wins: \"500+ prompts\" > \"lots\"\n- Numbers attract: \"3 steps\" > \"a few\"\n- Urgency helps: \"before you lose\" > \"eventually\"\n- Avoid jargon for general audience\n\n## Output Format\n\nHOOK A: [Name]\nOpening: [7-9 words]\nAudience: Makers ✅✅✅ | PMs ✅ | Engineers ✅✅\nCTR: Makers X% | PMs Y% | Engineers Z%\nRationale: [Why different performance]\n\nTest 3 hooks minimum.",
         "icon": "🧪",
         "color": "#14B8A6",
         "folder_id": "folder-video",
         "url": "",
         "created_at": 1733040405,
-        "updated_at": 1733040405
+        "updated_at": 1733227200
       },
       {
         "id": "vid-07",
@@ -555,14 +607,14 @@
       },
       {
         "id": "img-05",
-        "title": "3D Tokens",
-        "body": "Render 3D floating UI tokens: prompts, folders, tags. Soft lighting, pastel palette.",
+        "title": "3D UI Token Rendering Specs",
+        "body": "# 3D UI Token Rendering Specifications\n\n## Overview\nCreate floating 3D representations of Prompteka's core UI elements: prompts, folders, and tags.\n\n## Visual Style\n\n### Lighting Setup\n- **Key Light:** Soft, diffused from top-left (45° angle)\n- **Fill Light:** Subtle from bottom-right (prevents harsh shadows)\n- **Rim Light:** Gentle backlight for depth separation\n- **Ambient:** Low-intensity global illumination\n\n### Color Palette (Pastel)\n- **Prompts:** Soft blue (#A8DAFF) with slight gradient to white\n- **Folders:** Warm beige (#FFE4B5) with creamy highlights\n- **Tags:** Mint green (#B2F5EA) with subtle shimmer\n\n### Material Properties\n- **Finish:** Matte with slight satin sheen (not glossy)\n- **Roughness:** 0.6-0.7 (soft, approachable)\n- **Metalness:** 0 (pure dielectric, no metallic look)\n- **Subsurface Scattering:** Minimal (adds warmth)\n\n---\n\n## Token Designs\n\n### Prompt Token (Card)\n**Shape:** Rounded rectangle (16:9 aspect ratio)\n**Dimensions:** 120mm × 68mm × 3mm (credit card proportions)\n**Details:**\n- Embossed text lines (representing content)\n- Small circular icon depression (top-left)\n- Soft beveled edges (1mm radius)\n- Drop shadow (12mm below, 40% opacity, 8mm blur)\n\n**Floating Behavior:**\n- Gentle rotation: 5° tilt on X-axis, 3° on Y-axis\n- Hover height: 20mm above ground plane\n- Subtle breathing animation (±2mm vertical)\n\n### Folder Token (3D Folder)\n**Shape:** Traditional folder with slight modernization\n**Dimensions:** 100mm wide × 80mm deep × 60mm tall (open state)\n**Details:**\n- Tab at back (20mm exposed)\n- Slightly open (15° angle) showing interior\n- Interior color: lighter shade of exterior\n- Paper texture on surfaces (subtle)\n- Edge thickness: 2mm\n\n**Floating Behavior:**\n- Slow rotation: Full 360° over 20 seconds\n- Hover height: 25mm\n- Wobble: ±1° on all axes (organic feel)\n\n### Tag Token (Rounded Pill)\n**Shape:** Elongated capsule/pill\n**Dimensions:** 80mm × 30mm × 12mm\n**Details:**\n- Perfectly rounded ends (hemisphere caps)\n- Smooth, seamless surface\n- Small embossed label text\n- No sharp edges\n\n**Floating Behavior:**\n- Gentle sway: ±10mm horizontal drift (8-second loop)\n- Hover height: 15mm\n- Slow spin: 180° rotation over 12 seconds\n\n---\n\n## Composition & Arrangement\n\n### Scene Layout\n**Camera:** Isometric view (35mm equivalent, slight wide angle)\n**Token Placement:**\n- Prompt token: Center-left, facing viewer\n- Folder token: Right side, slightly back\n- Tag token: Front-right, lower position\n\n**Depth Staging:**\n- Near: Tag (closest to camera)\n- Mid: Prompt (main focus)\n- Far: Folder (background element)\n\n**Spacing:** 40-60mm between tokens (avoid overlap)\n\n### Background\n- **Type:** Gradient backdrop (not solid)\n- **Colors:** Very light blue-gray (#F0F4F8) to white\n- **Vignette:** Subtle darkening at edges (10% opacity)\n- **Ground Plane:** Infinite, reflects tokens (20% opacity, blurred)\n\n---\n\n## Technical Specifications\n\n### Rendering Settings\n- **Resolution:** 4K (3840×2160) minimum\n- **Anti-Aliasing:** 8x MSAA or equivalent TAA\n- **Ray Tracing:** Enabled for accurate shadows/reflections\n- **Samples:** 512+ for final render (no noise)\n- **Color Space:** sRGB (for web) or Display P3 (for print)\n\n### File Formats\n- **Hero Image:** PNG (lossless, alpha channel)\n- **Thumbnail:** JPG (85% quality, 1920×1080)\n- **Motion Version:** MP4 (H.264, 30fps, 10 seconds loop)\n\n### Animation Parameters (if applicable)\n- **Duration:** 10-second seamless loop\n- **Easing:** Ease-in-out (no abrupt movements)\n- **Frame Rate:** 30fps (smooth, not jarring)\n\n---\n\n## Usage Context\n- **Marketing:** Website hero, social media graphics\n- **Documentation:** Feature explainers, UI guides\n- **App:** Onboarding illustrations, empty states\n\n**Deliverables:**\n1. Static render (PNG, 4K)\n2. Animated loop (MP4, 1080p)\n3. Individual token renders (isolated, transparent BG)",
         "icon": "🧊",
         "color": "#0EA5E9",
         "folder_id": "folder-image",
         "url": "",
         "created_at": 1733040504,
-        "updated_at": 1733040504
+        "updated_at": 1733227200
       },
       {
         "id": "img-06",
@@ -687,14 +739,14 @@
       },
       {
         "id": "biz-07",
-        "title": "Churn Survey",
-        "body": "Write 5 churn survey questions and 3 save offers.",
+        "title": "Customer Churn Analysis Framework",
+        "body": "# Customer Churn Analysis & Retention Framework\n\n## Survey Questions (5 Core)\n\n### 1. Primary Reason for Cancellation\n\"What's the main reason you're considering canceling?\"\n\n**Options:**\n- [ ] Too expensive / not enough value\n- [ ] Missing features I need\n- [ ] Found a better alternative\n- [ ] Technical issues / bugs\n- [ ] Rarely use it anymore\n- [ ] Privacy / security concerns\n- [ ] Other: _______________\n\n**Follow-up:** \"Can you tell us more about [selected reason]?\"\n\n### 2. Feature Gap Analysis\n\"Which features would make you reconsider?\"\n\n**Options (multi-select):**\n- [ ] Cloud sync across devices\n- [ ] Team collaboration\n- [ ] API access\n- [ ] Mobile app\n- [ ] Advanced search/filters\n- [ ] Import from [competitor]\n- [ ] Other: _______________\n\n### 3. Usage Pattern\n\"How often did you use Prompteka in the last month?\"\n\n- [ ] Daily\n- [ ] Weekly  \n- [ ] Monthly\n- [ ] Rarely / Never\n\n**Insight:** Correlate usage frequency with churn likelihood\n\n### 4. Competitive Landscape\n\"If you're switching, which tool are you moving to?\"\n\n- [ ] [Competitor A]\n- [ ] [Competitor B]\n- [ ] Custom solution / scripts\n- [ ] Going back to notes/docs\n- [ ] Not using a prompt manager\n- [ ] Other: _______________\n\n**Follow-up:** \"What does [that tool] offer that we don't?\"\n\n### 5. NPS Recovery\n\"On a scale of 0-10, how likely would you recommend Prompteka to a colleague?\"\n\n**Score: [ ]**\n\n**If 0-6 (Detractors):**\n\"What would it take to change your score to a 9 or 10?\"\n\n---\n\n## Save Offers (3 Tiers)\n\n### Offer 1: Discount (Price-Sensitive Users)\n**Trigger:** Selected \"Too expensive\"\n\n**Offer:**\n\"We'd hate to lose you. Here's 40% off for the next 3 months—no commitment required.\"\n\n**Button:** \"Apply discount & stay\"\n\n**Expected Save Rate:** 35-45%\n\n---\n\n### Offer 2: Feature Preview (Feature-Gapped Users)\n**Trigger:** Selected \"Missing features\" + identified specific needs\n\n**Offer:**\n\"Good news! [Feature X] is launching next month. Want early access?\"\n\n**Button:** \"Get early access\"\n\n**Expected Save Rate:** 25-35%\n\n---\n\n### Offer 3: Pause Option (Low-Usage Users)\n**Trigger:** Selected \"Rarely use\" or usage < 2x/month\n\n**Offer:**\n\"Need a break? Pause your subscription for up to 3 months. Your data stays safe, no charge.\"\n\n**Button:** \"Pause subscription\"\n\n**Expected Save Rate:** 20-30%\n\n---\n\n## Implementation Flow\n\n1. **Trigger:** User clicks \"Cancel subscription\"\n2. **Survey:** Show 5 questions (required)\n3. **Save Offer:** Based on responses, show most relevant offer\n4. **Outcome Tracking:**\n   - Stayed (with/without offer)\n   - Paused\n   - Canceled\n   - Reason categorization\n\n## Key Metrics to Track\n\n- **Churn Rate:** (Cancellations / Active Users) × 100\n- **Save Rate:** (Retained / Cancellation Attempts) × 100\n- **Reason Distribution:** % per reason category\n- **Offer Effectiveness:** Save rate per offer type\n- **Usage Correlation:** Churn rate by usage tier\n\n## Analysis Questions\n\n**Weekly Review:**\n- Which churn reason is growing fastest?\n- Are save offers performing better/worse?\n- Any patterns in churned user profiles?\n\n**Monthly Deep Dive:**\n- Cohort analysis: Does churn stabilize after X months?\n- Feature requests from churned users\n- Competitor movement trends\n\n---\n\n**Priority:** Always address the top churn reason first. One major fix beats three minor improvements.",
         "icon": "🔁",
         "color": "#EC4899",
         "folder_id": "folder-business",
         "url": "",
         "created_at": 1733040606,
-        "updated_at": 1733040606
+        "updated_at": 1733227200
       },
       {
         "id": "biz-08",
@@ -819,14 +871,14 @@
       },
       {
         "id": "mkt-09",
-        "title": "A/B Hero Copy",
-        "body": "Create two hero copy variants: privacy-first vs speed-first. Include subhead and CTA.",
+        "title": "A/B Hero Copy Testing",
+        "body": "# A/B Hero Copy Testing Framework\n\nCreate two distinct hero copy variants optimized for different value propositions.\n\n## Variant A: Privacy-First\n\n### Headline\n\"Your AI Prompts, Private and Organized\"\n\n### Subhead\n\"Store unlimited prompts locally with zero cloud sync. Fast search, smart folders, complete privacy.\"\n\n### CTA Primary\n\"Download for Mac\"\n\n### CTA Secondary  \n\"See how it works\"\n\n### Value Props (3 bullets)\n- 🔒 100% local storage—your data never leaves your Mac\n- ⚡ Lightning-fast search across all prompts\n- 📁 Organize with folders, tags, and emoji icons\n\n### Target Audience\n- Privacy-conscious users\n- Enterprise users with data policies\n- Security researchers\n- Users burned by cloud breaches\n\n### Predicted Performance\n- **Click-Through:** 8.2% (high intent, specific pain point)\n- **Conversion:** 12% (motivated, clear need)\n- **Objections:** \"Does it have cloud backup?\" (No, but export)\n\n---\n\n## Variant B: Speed-First\n\n### Headline\n\"Find Any AI Prompt in Milliseconds\"\n\n### Subhead\n\"Instant full-text search. Keyboard shortcuts. Zero cloud lag. Built for power users.\"\n\n### CTA Primary\n\"Start organizing now\"\n\n### CTA Secondary\n\"Watch demo\"\n\n### Value Props (3 bullets)\n- ⚡ Search 1,000+ prompts instantly\n- ⌨️ Global shortcut (Cmd+Shift+P) from anywhere\n- 🚀 No loading, no syncing, just fast\n\n### Target Audience\n- Power users\n- Developers with large prompt libraries\n- Users frustrated with slow cloud apps\n- Keyboard-first workflows\n\n### Predicted Performance\n- **Click-Through:** 7.8% (appeals to efficiency)\n- **Conversion:** 14% (clear workflow improvement)\n- **Objections:** \"How much does it cost?\" (One-time purchase)\n\n---\n\n## Testing Methodology\n\n### 1. Split Test Setup\n- 50/50 traffic split\n- Minimum 2,000 visitors per variant\n- Run for 7 days minimum\n- Track: CTR, scroll depth, time on page, conversion\n\n### 2. Segmentation Analysis\nAnalyze performance by:\n- **Traffic Source:** Direct, organic, social, ads\n- **Device:** Desktop vs mobile\n- **Geography:** US, EU, Asia\n- **Behavior:** New vs returning visitors\n\n### 3. Qualitative Feedback\n- **Surveys:** \"What made you click?\" (post-CTA)\n- **Session Recordings:** Watch 50 sessions per variant\n- **Heatmaps:** Click patterns, scroll depth\n\n## Key Metrics\n\n| Metric | Variant A (Privacy) | Variant B (Speed) |\n|--------|---------------------|-------------------|\n| CTR | 8.2% | 7.8% |\n| Conversion | 12% | 14% |\n| Bounce Rate | 32% | 28% |\n| Time on Page | 1:24 | 1:42 |\n\n## Decision Framework\n\n**Choose Privacy-First (A) if:**\n- High-value enterprise leads\n- Security-focused audience\n- Competitive landscape emphasizes privacy\n\n**Choose Speed-First (B) if:**\n- Power user audience (devs, PMs)\n- Fast is a key differentiator\n- Users cite \"slow apps\" as pain point\n\n## Iteration Plan\n\nAfter initial test:\n1. **Winner takes 80%** traffic\n2. Test new variant against winner (20% traffic)\n3. Iterate on losing elements (headline, CTA, props)\n4. Repeat monthly\n\n---\n\n## Copy Guidelines\n\n### Headlines (6-10 words)\n- Lead with primary benefit\n- Avoid jargon/buzzwords\n- Make promise specific\n\n### Subheads (12-18 words)\n- Support headline with \"how\"\n- Add secondary benefits\n- Create urgency/FOMO subtly\n\n### CTAs (2-3 words)\n- Action verb + benefit\n- Not: \"Learn More\" / \"Get Started\"\n- Yes: \"Download Now\" / \"Start Free Trial\"\n\nTest both variants. Data wins over opinions.",
         "icon": "🧪",
         "color": "#C084FC",
         "folder_id": "folder-marketing",
         "url": "",
         "created_at": 1733040708,
-        "updated_at": 1733040708
+        "updated_at": 1733227200
       },
       {
         "id": "mkt-10",
@@ -841,14 +893,14 @@
       },
       {
         "id": "res-01",
-        "title": "Competitive Teardown",
-        "body": "List 5 competitors, their edge, and gaps Prompteka fills.",
+        "title": "Competitive Analysis Framework",
+        "body": "# Competitive Analysis Framework\n\n## Competitor Matrix\n\n### Competitor 1: [Cloud Prompt Manager A]\n**Positioning:** Team collaboration, cloud-first\n\n**Strengths:**\n- Real-time sync across devices\n- Team sharing and permissions\n- Version history\n- Web-based (no install)\n- Integrations with popular AI tools\n\n**Weaknesses:**\n- Monthly subscription ($15/mo)\n- Privacy concerns (data on servers)\n- Slower with large libraries (1000+ prompts)\n- Requires internet connection\n- Limited offline functionality\n\n**Gaps Prompteka Fills:**\n- No subscription (one-time purchase)\n- 100% local storage (privacy)\n- Fast with any library size\n- Works offline always\n- Simple, focused UX (no team bloat)\n\n---\n\n### Competitor 2: [Notion/Obsidian Extensions]\n**Positioning:** DIY, note-taking add-ons\n\n**Strengths:**\n- Free (if you already use the tool)\n- Flexible (markdown-based)\n- Existing user base\n- Extensible with plugins\n\n**Weaknesses:**\n- Not purpose-built for prompts\n- Setup friction (install, configure)\n- No prompt-specific features (emoji icons, tags, preview modes)\n- Cluttered UX (designed for notes, not prompts)\n- Slow search in large databases\n\n**Gaps Prompteka Fills:**\n- Purpose-built for AI prompts\n- Zero setup (works immediately)\n- Prompt-specific features (preview, tags, emojis)\n- Clean, focused UX\n- Faster search\n\n---\n\n### Competitor 3: [GitHub Gists / Plain Files]\n**Positioning:** Free, developer-friendly\n\n**Strengths:**\n- Free\n- Version control (Git)\n- Accessible everywhere (web, CLI)\n- Developer-friendly\n- Backup inherent (Git)\n\n**Weaknesses:**\n- Public by default (privacy risk if not careful)\n- No UX (just text files)\n- No search across gists\n- No organization (folders, tags)\n- Cumbersome workflow (create, copy, paste)\n\n**Gaps Prompteka Fills:**\n- Beautiful, native UX\n- Private by default\n- Instant search\n- Rich organization (folders, tags, colors)\n- One-click copy\n\n---\n\n### Competitor 4: [IDE Snippets]\n**Positioning:** Integrated into dev environment\n\n**Strengths:**\n- Already in workflow\n- Fast access (keyboard shortcuts)\n- Free (built into IDE)\n- Syntax highlighting\n\n**Weaknesses:**\n- IDE-specific (not accessible outside)\n- Limited to code snippets (not long prompts)\n- No preview modes (markdown, HTML)\n- No cross-IDE sync\n- Poor for non-code prompts\n\n**Gaps Prompteka Fills:**\n- Universal (works outside IDE)\n- Handles long-form prompts\n- Rich preview modes\n- Accessible from any app\n- Not just for code\n\n---\n\n### Competitor 5: [Copy-Paste from Docs/Sheets]\n**Positioning:** Ad-hoc, no dedicated tool\n\n**Strengths:**\n- Free\n- Familiar (everyone knows Docs)\n- Shareable (links)\n- Collaborative\n\n**Weaknesses:**\n- Not searchable across docs\n- No tagging or organization\n- Slow (scroll, find, copy)\n- Clunky for frequent use\n- No offline access (Docs)\n\n**Gaps Prompteka Fills:**\n- Fast search\n- Rich organization\n- One-click copy\n- Offline-first\n- Purpose-built UX\n\n---\n\n## Summary: Prompteka's Unique Position\n\n**vs Cloud Tools:** Privacy + Speed + No subscription\n**vs DIY Solutions:** Purpose-built + Beautiful UX + Zero setup\n**vs Free Options:** Organized + Fast search + Professional tool\n\n## Messaging Strategy\n\n**Don't say:** \"We're better than X\"\n\n**Do say:**\n- \"If you care about privacy, use Prompteka instead of [Cloud Tool]\"\n- \"If you're tired of [DIY approach], Prompteka just works\"\n- \"If you need a professional tool, not a hack, choose Prompteka\"\n\n---\n\n## Competitive Monitoring\n\n**Monthly Check:**\n- New features from competitors\n- Pricing changes\n- User reviews (what do users love/hate?)\n- Market shifts (new entrants)\n\n**Respond To:**\n- Major feature gaps (if widely requested)\n- Pricing pressure (if market shifts)\n- New use cases (if addressable)\n\n**Ignore:**\n- Enterprise features we don't serve\n- Team collaboration (out of scope)\n- AI integrations (keep focused)",
         "icon": "🔎",
         "color": "#6366F1",
         "folder_id": "folder-research",
         "url": "https://prompteka.net/research",
         "created_at": 1733040800,
-        "updated_at": 1733040800
+        "updated_at": 1733227200
       },
       {
         "id": "res-02",
@@ -948,6 +1000,62 @@
         "url": "",
         "created_at": 1733040809,
         "updated_at": 1733040809
+      }
+    ],
+    "tags": [
+      {
+        "id": "tag-01",
+        "name": "ai"
+      },
+      {
+        "id": "tag-02",
+        "name": "api"
+      },
+      {
+        "id": "tag-03",
+        "name": "frontend"
+      },
+      {
+        "id": "tag-04",
+        "name": "backend"
+      },
+      {
+        "id": "tag-05",
+        "name": "marketing"
+      },
+      {
+        "id": "tag-06",
+        "name": "research"
+      }
+    ],
+    "prompt_tags": [
+      {
+        "prompt_id": "demo-01",
+        "tag_id": "tag-03"
+      },
+      {
+        "prompt_id": "demo-02",
+        "tag_id": "tag-03"
+      },
+      {
+        "prompt_id": "demo-03",
+        "tag_id": "tag-04"
+      },
+      {
+        "prompt_id": "demo-04",
+        "tag_id": "tag-02"
+      },
+      {
+        "prompt_id": "ai-09",
+        "tag_id": "tag-01"
+      },
+      {
+        "prompt_id": "api-04",
+        "tag_id": "tag-02"
+      },
+      {
+        "prompt_id": "api-04",
+        "tag_id": "tag-04"
       }
     ],
     "settings": []
