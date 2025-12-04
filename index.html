@@ -411,6 +411,12 @@
             max-width: 600px;
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-xl);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
         }
 
         @media (max-width: 968px) {
@@ -1319,6 +1325,15 @@
                 lightbox.style.display = 'block';
             });
         });
+
+        // Add click handler to hero image for lightbox
+        const heroImg = document.querySelector('.hero-image img');
+        if (heroImg) {
+            heroImg.addEventListener('click', () => {
+                lightbox.querySelector('img').src = heroImg.src;
+                lightbox.style.display = 'block';
+            });
+        }
 
         // Stop auto-play when thumbnail clicked
         thumbs.forEach(thumb => {
