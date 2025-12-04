@@ -300,6 +300,7 @@
             <a href="#faq-folders" class="toc-sublink">How do I organize prompts with folders?</a>
             <a href="#faq-emojis" class="toc-sublink">What are the emoji categories?</a>
             <a href="#faq-appearance" class="toc-sublink">Can I customize the app's appearance?</a>
+            <a href="#faq-storage-limits" class="toc-sublink">Are there any storage limits?</a>
         </div>
         <div class="toc-section">
             <a href="#system-requirements" class="toc-link">System Requirements</a>
@@ -423,6 +424,46 @@
             <li>Select from hundreds of emojis as icons</li>
             <li>Adjust the sidebar width (drag the divider)</li>
             <li>Sort prompts by date or alphabetically</li>
+        </ul>
+    </div>
+
+    <div id="faq-storage-limits" class="faq-item">
+        <div class="faq-question">Q: Are there any storage limits?</div>
+        <p>Prompteka uses a local SQLite database with no hard-coded limits. Your practical ceiling is your Mac's available disk space. However, here are some guidelines for optimal performance:</p>
+
+        <p><strong>Recommended Usage (Smooth Performance)</strong></p>
+        <ul>
+            <li><strong>Number of prompts:</strong> Up to 500</li>
+            <li><strong>Average prompt size:</strong> Up to 10 KB each</li>
+            <li><strong>Total database size:</strong> Up to 10 MB</li>
+            <li><strong>Backup file size:</strong> Up to 10 MB</li>
+        </ul>
+
+        <p><strong>Extended Usage (May Experience Slowdowns)</strong></p>
+        <ul>
+            <li><strong>Number of prompts:</strong> 500–2,000</li>
+            <li><strong>Average prompt size:</strong> 10–50 KB each</li>
+            <li><strong>Total database size:</strong> 10–50 MB</li>
+            <li><strong>Backup file size:</strong> 10–50 MB</li>
+        </ul>
+
+        <p><strong>Power User Territory (Potential Performance Issues)</strong></p>
+        <ul>
+            <li><strong>Number of prompts:</strong> 2,000+</li>
+            <li><strong>Average prompt size:</strong> 50+ KB each</li>
+            <li><strong>Total database size:</strong> 50+ MB</li>
+            <li><strong>Backup/restore:</strong> May be slow or cause temporary freezes with very large libraries</li>
+        </ul>
+
+        <p><strong>Why these limits?</strong></p>
+        <p>While SQLite can technically handle terabytes of data, Prompteka loads all prompts into memory for fast searching and instant access. Very large libraries increase memory usage and slow down startup, search, and backup/restore operations. For most users managing AI prompts, these limits are more than sufficient.</p>
+
+        <p><strong>Tips for Large Libraries</strong></p>
+        <ul>
+            <li>Keep prompts concise—store the prompt, not the full conversation</li>
+            <li>Use folders to stay organized</li>
+            <li>Periodically archive old prompts you no longer use</li>
+            <li>Back up regularly in case you need to restore</li>
         </ul>
     </div>
 
