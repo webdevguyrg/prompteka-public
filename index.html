@@ -46,14 +46,72 @@
         "ratingCount": "1"
       },
       "description": "Organize, search, and access your AI prompts instantly. Native macOS app for managing ChatGPT, Claude, and other AI prompts.",
-      "softwareVersion": "1.4.1",
+      "softwareVersion": "1.5.0",
       "publisher": {
         "@type": "Organization",
         "name": "GrowTech Development, LLC"
       }
     }
     </script>
-    
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Prompteka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompteka is a native macOS application for organizing, searching, and managing AI prompts. It helps power users of ChatGPT, Claude, and other AI tools keep their prompts organized with folders, tags, emoji markers, and instant full-text search. Built with Rust and Tauri, it offers lightning-fast performance while keeping all your data local on your Mac."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Prompteka free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Prompteka is completely free to download and use. There are no subscriptions, in-app purchases, or hidden fees. Download it once from the Mac App Store and use all features without any limitations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private and secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. Prompteka is designed with privacy at its core. All your prompts are stored locally on your Mac using SQLite. There is no cloud sync, no analytics tracking, and no data collection. Your prompts never leave your computer. The app works completely offline after installation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What platforms does Prompteka support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompteka is currently available exclusively for macOS. It's a native Mac application built specifically for macOS users who want a fast, professional-grade prompt management tool. The app requires macOS 10.15 (Catalina) or later."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What features does Prompteka offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prompteka offers comprehensive prompt management features including: folder organization, color tags and emoji markers, instant full-text search, format detection for Markdown/JSON/XML, syntax highlighting, real-time preview, 269+ emoji picker across 13 categories, dark mode support, keyboard shortcuts, import/export functionality, and backup/restore capabilities. All features are included for free."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Prompteka different from other prompt managers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unlike web-based or Electron apps, Prompteka is a truly native macOS application built with Rust and Tauri for lightning-fast performance. It offers instant search across thousands of prompts, complete offline functionality, zero cloud dependencies, professional-grade organization tools, and keeps all data 100% private on your Mac. No subscriptions, no tracking, no compromises."
+          }
+        }
+      ]
+    }
+    </script>
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -551,6 +609,127 @@
             line-height: 1.5;
         }
 
+        /* Why Different Section */
+        .why-different {
+            background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 50%, #f3e8ff 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-different::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="1" fill="rgba(102,126,234,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .why-different-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-different-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 1px solid rgba(102,126,234,0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .why-different-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .why-different-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        .why-different-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.6;
+        }
+
+        .why-different-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .why-different-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .why-different-item {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 126, 234, 0.15);
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.08);
+        }
+
+        .why-different-item:hover {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+        }
+
+        .why-different-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .why-different-item-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .why-different-item-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .why-different-highlight {
+            color: #6366f1;
+            font-weight: 600;
+        }
+
         /* Features Section */
         .features {
             background: var(--bg-white);
@@ -1020,7 +1199,7 @@
     <nav class="nav">
         <div class="container nav-content">
             <a href="#" class="nav-logo">
-                <img src="icon.png" alt="Prompteka">
+                <img src="icon.png" alt="Prompteka logo - AI prompt manager for Mac">
                 Prompteka
             </a>
             <div class="nav-links">
@@ -1067,34 +1246,41 @@
         </div>
     </section>
 
-    <!-- What's New Section -->
-    <section class="whats-new">
-        <div class="container whats-new-container">
-            <div class="whats-new-badge">NEW IN LATEST VERSION</div>
-            <h2 class="whats-new-title">Latest Updates</h2>
-            <p class="whats-new-subtitle">
-                We're constantly improving <span class="brand-text">Prompteka</span> with features you'll love
+    <!-- Why Different Section -->
+    <section class="why-different">
+        <div class="container why-different-container">
+            <div class="why-different-badge">NOT YOUR ORDINARY PROMPT LIBRARY</div>
+            <h2 class="why-different-title">Why Choose Prompteka for AI Prompt Management</h2>
+            <p class="why-different-subtitle">
+                There are plenty of ways to store prompts. <span class="brand-text">Prompteka</span> isn't just another organizer—it's a <span class="why-different-highlight">native Mac app built for power users</span> who demand speed, privacy, and professional-grade tools.
             </p>
-            <div class="whats-new-features">
-                <div class="whats-new-feature">
-                    <div class="whats-new-icon">🌙</div>
-                    <h3 class="whats-new-feature-title">Dark Mode Support</h3>
-                    <p class="whats-new-feature-desc">
-                        Automatic theme switching based on system preferences with manual override option
+            <div class="why-different-grid">
+                <div class="why-different-item">
+                    <span class="why-different-icon">🗂️</span>
+                    <h3 class="why-different-item-title">Organization That Actually Works</h3>
+                    <p class="why-different-item-desc">
+                        Folders, color tags, emoji markers, <span class="why-different-highlight">instant full-text search</span>, and format detection (Markdown/JSON/XML). Find any prompt in milliseconds, not minutes.
                     </p>
                 </div>
-                <div class="whats-new-feature">
-                    <div class="whats-new-icon">💾</div>
-                    <h3 class="whats-new-feature-title">Backup & Restore</h3>
-                    <p class="whats-new-feature-desc">
-                        Export and import your entire prompt library with flexible restore modes
+                <div class="why-different-item">
+                    <span class="why-different-icon">⚡</span>
+                    <h3 class="why-different-item-title">Truly Native. Lightning Fast.</h3>
+                    <p class="why-different-item-desc">
+                        Not a clunky Electron app or browser extension. <span class="why-different-highlight">Built with Rust and Tauri</span> for blazing performance, minimal memory use, and instant search across thousands of prompts.
                     </p>
                 </div>
-                <div class="whats-new-feature">
-                    <div class="whats-new-icon">✨</div>
-                    <h3 class="whats-new-feature-title">Enhanced UX</h3>
-                    <p class="whats-new-feature-desc">
-                        Multi-select mode, toast notifications, improved labels, and polished interactions
+                <div class="why-different-item">
+                    <span class="why-different-icon">🔒</span>
+                    <h3 class="why-different-item-title">Your Data. Your Mac. Period.</h3>
+                    <p class="why-different-item-desc">
+                        <span class="why-different-highlight">100% local storage</span>. No cloud sync, no account required, no tracking pixels. Your AI prompts and intellectual property never leave your machine.
+                    </p>
+                </div>
+                <div class="why-different-item">
+                    <span class="why-different-icon">💰</span>
+                    <h3 class="why-different-item-title">One Price. Forever Yours.</h3>
+                    <p class="why-different-item-desc">
+                        <span class="why-different-highlight">No subscriptions</span>. No "premium tiers." No surprise charges. Pay once, own it forever, with free updates. Simple as it should be.
                     </p>
                 </div>
             </div>
@@ -1180,7 +1366,7 @@
     <!-- How It Works Section -->
     <section id="how-it-works" class="section how-it-works">
         <div class="container">
-            <h2 class="section-title">Get Started in Seconds</h2>
+            <h2 class="section-title">How to Organize AI Prompts in Seconds</h2>
             <p class="section-subtitle">
                 No complicated setup. No accounts. Just download and start organizing your prompts.
             </p>
@@ -1221,31 +1407,31 @@
                 <div class="gallery-container">
                     <div class="gallery-slides" id="gallerySlides">
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-01-overview.png" alt="Clean Overview">
+                            <img src="screenshots/prompteka-01-overview.png" alt="Prompteka overview showing folder organization and AI prompt library interface">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-02-markdown-editor.png" alt="Markdown Editor">
+                            <img src="screenshots/prompteka-02-markdown-editor.png" alt="Prompteka markdown editor with syntax highlighting and real-time preview">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-03-markdown-preview.png" alt="Markdown Preview">
+                            <img src="screenshots/prompteka-03-markdown-preview.png" alt="Prompteka markdown preview with formatted text and emoji support">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-04-html-preview.png" alt="HTML Preview">
+                            <img src="screenshots/prompteka-04-html-preview.png" alt="Prompteka HTML preview mode showing rendered content">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-05-json-preview.png" alt="JSON Preview">
+                            <img src="screenshots/prompteka-05-json-preview.png" alt="Prompteka JSON preview with syntax highlighting and formatting">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-06-xml-preview.png" alt="XML Preview">
+                            <img src="screenshots/prompteka-06-xml-preview.png" alt="Prompteka XML preview with structured data visualization">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-07-emoji-picker.png" alt="Emoji Picker">
+                            <img src="screenshots/prompteka-07-emoji-picker.png" alt="Prompteka emoji picker with 269+ emojis across 13 categories">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-08-search.png" alt="Search Feature">
+                            <img src="screenshots/prompteka-08-search.png" alt="Prompteka search feature for quickly finding AI prompts">
                         </div>
                         <div class="gallery-slide">
-                            <img src="screenshots/prompteka-09-settings.png" alt="Settings">
+                            <img src="screenshots/prompteka-09-settings.png" alt="Prompteka settings panel with theme customization and preferences">
                         </div>
                     </div>
 
@@ -1285,33 +1471,33 @@
                 <div class="gallery-thumbnails">
                     <div class="gallery-thumb-row">
                         <button class="gallery-thumb active" onclick="goToSlide(0)">
-                            <img src="screenshots/prompteka-01-overview.png" alt="Slide 1">
+                            <img src="screenshots/prompteka-01-overview.png" alt="Prompteka overview thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(1)">
-                            <img src="screenshots/prompteka-02-markdown-editor.png" alt="Slide 2">
+                            <img src="screenshots/prompteka-02-markdown-editor.png" alt="Markdown editor thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(2)">
-                            <img src="screenshots/prompteka-03-markdown-preview.png" alt="Slide 3">
+                            <img src="screenshots/prompteka-03-markdown-preview.png" alt="Markdown preview thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(3)">
-                            <img src="screenshots/prompteka-04-html-preview.png" alt="Slide 4">
+                            <img src="screenshots/prompteka-04-html-preview.png" alt="HTML preview thumbnail">
                         </button>
                     </div>
                     <div class="gallery-thumb-row">
                         <button class="gallery-thumb" onclick="goToSlide(4)">
-                            <img src="screenshots/prompteka-05-json-preview.png" alt="Slide 5">
+                            <img src="screenshots/prompteka-05-json-preview.png" alt="JSON preview thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(5)">
-                            <img src="screenshots/prompteka-06-xml-preview.png" alt="Slide 6">
+                            <img src="screenshots/prompteka-06-xml-preview.png" alt="XML preview thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(6)">
-                            <img src="screenshots/prompteka-07-emoji-picker.png" alt="Slide 7">
+                            <img src="screenshots/prompteka-07-emoji-picker.png" alt="Emoji picker thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(7)">
-                            <img src="screenshots/prompteka-08-search.png" alt="Slide 8">
+                            <img src="screenshots/prompteka-08-search.png" alt="Search feature thumbnail">
                         </button>
                         <button class="gallery-thumb" onclick="goToSlide(8)">
-                            <img src="screenshots/prompteka-09-settings.png" alt="Slide 9">
+                            <img src="screenshots/prompteka-09-settings.png" alt="Settings panel thumbnail">
                         </button>
                     </div>
                 </div>
@@ -1322,7 +1508,7 @@
     <!-- Privacy Section -->
     <section class="section privacy">
         <div class="container">
-            <h2 class="section-title">🔒 Your Data Stays on Your Mac</h2>
+            <h2 class="section-title">🔒 Private AI Prompt Storage on Your Mac</h2>
             <p class="section-subtitle">
                 <span class="brand-text">Prompteka</span> is designed with privacy at its core. No cloud, no tracking, no compromises.
             </p>
@@ -1349,7 +1535,7 @@
     <!-- Final CTA Section -->
     <section id="download" class="section final-cta">
         <div class="container">
-            <h2 class="final-cta-title">Ready to Organize Your AI Workflow?</h2>
+            <h2 class="final-cta-title">Start Organizing Your AI Prompts Today</h2>
             <p class="final-cta-description">
                 Stop losing and retyping your best prompts. Keep them perfectly organized with <span class="brand-text">Prompteka</span>.
             </p>
@@ -1391,7 +1577,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <a href="#" class="footer-logo">
-                <img src="icon.png" alt="Prompteka">
+                <img src="icon.png" alt="Prompteka logo - AI prompt manager for Mac">
                 Prompteka
             </a>
             <div class="footer-links">
