@@ -427,8 +427,8 @@
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 45% 55%;
+            gap: 48px;
             align-items: center;
         }
 
@@ -504,15 +504,15 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 600px;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
-            cursor: pointer;
-            transition: transform 0.2s ease;
+            max-width: 720px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-image img:hover {
-            transform: scale(1.02);
+            box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.35);
+            transform: translateY(-4px);
         }
 
         @media (max-width: 968px) {
@@ -1241,7 +1241,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="screenshots/prompteka-01-overview.png" alt="Prompteka - AI Prompt Manager for Mac">
+                    <img src="screenshots/prompteka-hero-transformation.png" alt="Prompteka - Transform prompt chaos into organized clarity">
                 </div>
             </div>
         </div>
