@@ -508,11 +508,25 @@
             border-radius: 16px;
             box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
         }
 
         .hero-image img:hover {
             box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.35);
             transform: translateY(-4px);
+        }
+
+        /* Hide watermark in bottom-right corner */
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(to left, #9b8fd4 0%, #8a7ec9 60%, transparent 100%);
+            border-bottom-right-radius: 16px;
+            pointer-events: none;
         }
 
         @media (max-width: 968px) {
@@ -1669,14 +1683,7 @@
             });
         });
 
-        // Add click handler to hero image for lightbox
-        const heroImg = document.querySelector('.hero-image img');
-        if (heroImg) {
-            heroImg.addEventListener('click', () => {
-                lightbox.querySelector('img').src = heroImg.src;
-                lightbox.style.display = 'block';
-            });
-        }
+        // Hero image does not use lightbox (removed for transformation image)
 
         // Stop auto-play when thumbnail clicked
         thumbs.forEach(thumb => {
