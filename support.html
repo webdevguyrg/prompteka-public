@@ -69,6 +69,12 @@
         .nav-links a:hover {
             color: #1e293b;
         }
+        .nav-links a.btn-primary {
+            color: white;
+        }
+        .nav-links a.btn-primary:hover {
+            color: white;
+        }
         /* Buttons */
         .btn {
             display: inline-flex;
@@ -316,6 +322,7 @@
         </div>
         <div class="toc-section">
             <a href="#faq" class="toc-link">Frequently Asked Questions</a>
+            <a href="#faq-sensitive-data" class="toc-sublink">⚠️ Can I store sensitive information?</a>
             <a href="#faq-data-storage" class="toc-sublink">Where is my data stored?</a>
             <a href="#faq-backup" class="toc-sublink">How do I backup my prompts?</a>
             <a href="#faq-restore" class="toc-sublink">How do I restore from a backup?</a>
@@ -325,7 +332,6 @@
             <a href="#faq-folders" class="toc-sublink">How do I organize prompts with folders?</a>
             <a href="#faq-emojis" class="toc-sublink">What are the emoji categories?</a>
             <a href="#faq-appearance" class="toc-sublink">Can I customize the app's appearance?</a>
-            <a href="#faq-sensitive-data" class="toc-sublink">Can I store sensitive information?</a>
             <a href="#faq-storage-limits" class="toc-sublink">Are there any storage limits?</a>
         </div>
         <div class="toc-section">
@@ -357,6 +363,34 @@
     </ul>
 
     <h2 id="faq">Frequently Asked Questions</h2>
+
+    <div id="faq-sensitive-data" class="faq-item">
+        <div class="faq-question">⚠️ Q: Can I store sensitive information like passwords or cryptocurrency seed phrases?</div>
+        <p><strong>No, we strongly recommend against storing sensitive credentials in Prompteka.</strong></p>
+
+        <p>While Prompteka keeps all your data private on your Mac (no cloud sync, no external transmission), <strong>the local database is not encrypted at rest</strong>. This means:</p>
+
+        <p><strong>✅ Safe to store:</strong></p>
+        <ul>
+            <li>AI prompts and templates</li>
+            <li>Code snippets and documentation</li>
+            <li>Workflow instructions</li>
+            <li>Non-sensitive reference materials</li>
+        </ul>
+
+        <p><strong>❌ Do NOT store:</strong></p>
+        <ul>
+            <li>Passwords or API keys</li>
+            <li>Cryptocurrency seed phrases or private keys</li>
+            <li>Credit card numbers or SSNs</li>
+            <li>Any confidential credentials</li>
+        </ul>
+
+        <p><strong>Additional Protection:</strong></p>
+        <p>If you enable macOS FileVault (full-disk encryption), your data is encrypted when your Mac is powered off or locked. However, when you're logged in and using Prompteka, the database file is accessible to anyone with access to your Mac.</p>
+
+        <p><strong>For sensitive credentials, use a dedicated password manager like 1Password or Bitwarden that provides encryption at rest.</strong></p>
+    </div>
 
     <div id="faq-data-storage" class="faq-item">
         <div class="faq-question">Q: Where is my data stored?</div>
@@ -451,34 +485,6 @@
             <li>Adjust the sidebar width (drag the divider)</li>
             <li>Sort prompts by date or alphabetically</li>
         </ul>
-    </div>
-
-    <div id="faq-sensitive-data" class="faq-item">
-        <div class="faq-question">Q: Can I store sensitive information like passwords or cryptocurrency seed phrases?</div>
-        <p><strong>No, we strongly recommend against storing sensitive credentials in Prompteka.</strong></p>
-
-        <p>While Prompteka keeps all your data private on your Mac (no cloud sync, no external transmission), <strong>the local database is not encrypted at rest</strong>. This means:</p>
-
-        <p><strong>✅ Safe to store:</strong></p>
-        <ul>
-            <li>AI prompts and templates</li>
-            <li>Code snippets and documentation</li>
-            <li>Workflow instructions</li>
-            <li>Non-sensitive reference materials</li>
-        </ul>
-
-        <p><strong>❌ Do NOT store:</strong></p>
-        <ul>
-            <li>Passwords or API keys</li>
-            <li>Cryptocurrency seed phrases or private keys</li>
-            <li>Credit card numbers or SSNs</li>
-            <li>Any confidential credentials</li>
-        </ul>
-
-        <p><strong>Additional Protection:</strong></p>
-        <p>If you enable macOS FileVault (full-disk encryption), your data is encrypted when your Mac is powered off or locked. However, when you're logged in and using Prompteka, the database file is accessible to anyone with access to your Mac.</p>
-
-        <p><strong>For sensitive credentials, use a dedicated password manager like 1Password or Bitwarden that provides encryption at rest.</strong></p>
     </div>
 
     <div id="faq-storage-limits" class="faq-item">
