@@ -428,6 +428,92 @@
             }
         }
 
+        /* What's New Section */
+        .whats-new {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            padding: 48px 0;
+        }
+
+        .whats-new-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .whats-new-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .whats-new-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .whats-new-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .whats-new-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .whats-new-features {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .whats-new-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        .whats-new-feature {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .whats-new-feature:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .whats-new-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .whats-new-feature-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .whats-new-feature-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
         /* Features Section */
         .features {
             background: var(--bg-white);
@@ -944,6 +1030,40 @@
         </div>
     </section>
 
+    <!-- What's New Section -->
+    <section class="whats-new">
+        <div class="container whats-new-container">
+            <div class="whats-new-badge">NEW IN V1.4.1</div>
+            <h2 class="whats-new-title">Latest Updates</h2>
+            <p class="whats-new-subtitle">
+                We're constantly improving Prompteka with features you'll love
+            </p>
+            <div class="whats-new-features">
+                <div class="whats-new-feature">
+                    <div class="whats-new-icon">☑</div>
+                    <h3 class="whats-new-feature-title">Multi-Select Mode</h3>
+                    <p class="whats-new-feature-desc">
+                        Easily select multiple prompts with clear visual feedback and helpful notifications
+                    </p>
+                </div>
+                <div class="whats-new-feature">
+                    <div class="whats-new-icon">💬</div>
+                    <h3 class="whats-new-feature-title">Toast Notifications</h3>
+                    <p class="whats-new-feature-desc">
+                        Get instant feedback with non-intrusive notifications for all your actions
+                    </p>
+                </div>
+                <div class="whats-new-feature">
+                    <div class="whats-new-icon">✨</div>
+                    <h3 class="whats-new-feature-title">Enhanced UX</h3>
+                    <p class="whats-new-feature-desc">
+                        Improved button labels, clearer interactions, and polished interface details
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Features Section -->
     <section id="features" class="section features">
         <div class="container">
@@ -1214,7 +1334,7 @@
         <div class="container" style="text-align: center;">
             <h2 class="section-title" style="color: white; margin-bottom: 1rem;">🎁 Try Prompteka with Sample Data</h2>
             <p class="section-subtitle" style="color: rgba(255,255,255,0.95); max-width: 600px; margin: 0 auto 2rem;">
-                Download our curated collection of 80 professional prompts across 8 categories. Import them instantly to explore all of Prompteka's features.
+                Want to quickly try out Prompteka's features? Download our archive of 80+ sample prompts across 8 categories and import them instantly to explore the app.
             </p>
             <a href="sample-data.json" download="prompteka-sample-data.json" class="app-store-btn" style="background: white; color: #667eea; display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2rem; font-size: 1.1rem; font-weight: 600; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: transform 0.2s, box-shadow 0.2s;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
