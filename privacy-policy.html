@@ -29,10 +29,12 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .nav-content {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+        .nav-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -43,7 +45,7 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
-            color: #1e293b;
+            color: #667eea;
             font-weight: 700;
             font-size: 1.25rem;
         }
@@ -66,6 +68,30 @@
         }
         .nav-links a:hover {
             color: #1e293b;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5558e3 0%, #6d43a0 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
         @media (max-width: 768px) {
             .nav-links {
@@ -132,7 +158,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: white;
+            color: #c7d2fe;
             text-decoration: none;
             font-weight: 700;
         }
@@ -169,7 +195,7 @@
 <body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-content">
+        <div class="container nav-content">
             <a href="index.html" class="nav-logo">
                 <img src="icon.png" alt="Prompteka">
                 Prompteka
@@ -178,8 +204,7 @@
                 <a href="index.html#features">Features</a>
                 <a href="index.html#how-it-works">How It Works</a>
                 <a href="index.html#screenshots">Screenshots</a>
-                <a href="changelog.html">What's New</a>
-                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/us/app/prompteka/id6755987677?mt=12" class="btn btn-primary">Download</a>
             </div>
         </div>
     </nav>
@@ -263,7 +288,7 @@
                 Prompteka
             </a>
             <div class="footer-links">
-                <a href="changelog.html">What's New</a>
+                <a href="changelog.html">What's New (Changelog)</a>
                 <a href="support.html">Support</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="mailto:support@prompteka.net">Contact</a>
