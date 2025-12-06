@@ -270,7 +270,7 @@
 
     <div class="version-header">
         <div class="version-number">Version 1.6.0</div>
-        <div class="version-date">Upcoming Version</div>
+        <div class="version-date">December 6, 2025</div>
     </div>
 
     <div class="version-content">
@@ -281,6 +281,8 @@
                 <li><span class="badge badge-new">New</span> <strong>Multi-Select System</strong> - Streamlined multi-select experience without mode toggle. Checkboxes appear on hover, selection count displays in sidebar, and folder/section checkboxes let you select all prompts at once</li>
                 <li><span class="badge badge-new">New</span> <strong>Multi-Select Context Menu</strong> - Right-click selected prompts to access bulk actions: move to folder (with hover-based submenu), export as individual files, change emoji, change color tag, and delete multiple prompts with confirmation</li>
                 <li><span class="badge badge-new">New</span> <strong>Smart Individual File Export</strong> - Export selected prompts as individual files with automatic format detection (JSON, XML, HTML, or Markdown) based on content. Files are properly named and saved to your chosen directory</li>
+                <li><span class="badge badge-new">New</span> <strong>Shift-Click Range Selection</strong> - Hold Shift and click to select or deselect multiple prompts at once. Works exactly like file explorers (Finder, Windows Explorer) for intuitive bulk selection across folders</li>
+                <li><span class="badge badge-new">New</span> <strong>Escape Key to Clear Selection</strong> - Press Escape to instantly clear all selected prompts. Intelligent behavior that clears selections first, then closes settings if no selections exist</li>
             </ul>
         </div>
 
@@ -291,6 +293,16 @@
                 <li><span class="badge badge-improved">Improved</span> <strong>Context Menu UX</strong> - Instant hover highlighting (removed transitions) and hover-based submenu for "Move to Folder" creates a more responsive and intuitive experience</li>
                 <li><span class="badge badge-improved">Improved</span> <strong>Multi-Select Accessibility</strong> - All prompts can now be selected via checkboxes, including prompts in the "No Folder" section. Consistent behavior across all organizational structures</li>
                 <li><span class="badge badge-improved">Improved</span> <strong>Settings UI</strong> - Backup options now displayed side-by-side for better space efficiency and easier access</li>
+                <li><span class="badge badge-improved">Improved</span> <strong>Auto-Expand on Select All</strong> - Folders automatically expand when using "Select All" checkbox, providing visual feedback of what's being selected</li>
+                <li><span class="badge badge-improved">Improved</span> <strong>Selection Badge Design</strong> - Updated from pill-shaped to rounded rectangle for a more modern, professional appearance that better matches macOS Big Sur UI patterns</li>
+                <li><span class="badge badge-improved">Improved</span> <strong>Smart Menu Positioning</strong> - Emoji picker and color picker in multi-select context menu now intelligently position themselves to avoid being cut off at screen edges</li>
+            </ul>
+        </div>
+
+        <div class="feature-section">
+            <h3>🐛 Bug Fixes</h3>
+            <ul>
+                <li><span class="badge badge-fixed">Fixed</span> <strong>Submenu Conflicts</strong> - Fixed issue where multiple submenus (folder menu, emoji picker, color picker) could stay open simultaneously. All submenus now properly close when opening another</li>
             </ul>
         </div>
     </div>
