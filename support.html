@@ -343,6 +343,7 @@
             <a href="#troubleshooting-wont-open" class="toc-sublink">App won't open or crashes</a>
             <a href="#troubleshooting-data-disappeared" class="toc-sublink">Data disappeared after update</a>
             <a href="#troubleshooting-search" class="toc-sublink">Search not finding my prompts</a>
+            <a href="#troubleshooting-permissions" class="toc-sublink">Permission errors when saving files</a>
         </div>
         <div class="toc-section">
             <a href="#contact" class="toc-link">Need More Help?</a>
@@ -562,6 +563,42 @@
     </ul>
     <p>Make sure your search term matches the text you're looking for. Search is case-insensitive.</p>
 
+    <h3 id="troubleshooting-permissions">Permission errors when exporting or backing up</h3>
+    <p>If you see a permission error when trying to save files (exports, backups, etc.), this is macOS protecting certain system folders. Here's how to fix it:</p>
+
+    <p><strong>Why This Happens</strong></p>
+    <p>macOS protects folders like Documents, Desktop, and Downloads from apps accessing them without explicit permission. App Store apps need special entitlements to access these locations.</p>
+
+    <p><strong>The Solution: Use Your Home Directory</strong></p>
+    <ol>
+        <li>Create a new folder in your home directory (e.g., "Prompteka-Backups")</li>
+        <li>When saving files, choose this folder instead</li>
+        <li>This avoids all permission issues</li>
+    </ol>
+
+    <p><strong>How to Create a Folder in Your Home Directory</strong></p>
+    <ol>
+        <li>Open Finder</li>
+        <li>Press <code>Shift+Cmd+H</code> to go to your home folder</li>
+        <li>Press <code>Shift+Cmd+N</code> to create a new folder</li>
+        <li>Name it something like "Prompteka-Backups"</li>
+    </ol>
+
+    <p><strong>Protected vs. Safe Locations</strong></p>
+    <ul>
+        <li><strong>Protected (may cause errors):</strong> Documents, Desktop, Downloads, iCloud Drive folders</li>
+        <li><strong>Safe (no permission issues):</strong> Any folder you create directly in your home directory</li>
+    </ul>
+
+    <p><strong>Quick Backup Users</strong></p>
+    <p>If you see a permission error with Quick Backup:</p>
+    <ol>
+        <li>Open Prompteka Settings (gear icon)</li>
+        <li>In the Quick Backup section, click the folder icon</li>
+        <li>Choose your newly created folder in your home directory</li>
+        <li>Quick Backup will now work without permission errors</li>
+    </ol>
+
     <div id="contact" class="contact-box">
         <h2>Need More Help?</h2>
         <p>Can't find the answer you're looking for? We're here to help.</p>
@@ -574,7 +611,7 @@
     </div>
 
     <p class="version" style="text-align: center; margin-top: 40px;">
-        Prompteka v1.5.0
+        Prompteka v1.6.1
     </p>
 
     <button id="back-to-top" title="Back to top">↑</button>
