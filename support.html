@@ -337,6 +337,13 @@
             <a href="#faq-storage-limits" class="toc-sublink">Are there any storage limits?</a>
         </div>
         <div class="toc-section">
+            <a href="#mcp-integration" class="toc-link">MCP Integration (Beta)</a>
+            <a href="#mcp-what-is" class="toc-sublink">What is MCP?</a>
+            <a href="#mcp-how-install" class="toc-sublink">How do I install it?</a>
+            <a href="#mcp-which-tools" class="toc-sublink">Which AI tools support MCP?</a>
+            <a href="#mcp-troubleshooting" class="toc-sublink">MCP not working?</a>
+        </div>
+        <div class="toc-section">
             <a href="#system-requirements" class="toc-link">System Requirements</a>
         </div>
         <div class="toc-section">
@@ -528,6 +535,62 @@
             <li>Periodically archive old prompts you no longer use</li>
             <li>Back up regularly in case you need to restore</li>
         </ul>
+    </div>
+
+    <h2 id="mcp-integration">MCP Integration (Beta)</h2>
+    <p>Prompteka now supports the <strong>Model Context Protocol (MCP)</strong>—a standard way to connect AI assistants to your prompt library. With MCP, your AI tools can read, create, and organize prompts directly from conversations.</p>
+
+    <div id="mcp-what-is" class="faq-item">
+        <div class="faq-question">Q: What is MCP?</div>
+        <p>MCP (Model Context Protocol) is an open standard developed by Anthropic that allows AI assistants like Claude Desktop, Cursor, and other MCP-compatible tools to access external data sources—like your Prompteka library.</p>
+        <p><strong>What you can do with MCP:</strong></p>
+        <ul>
+            <li>Ask your AI assistant to find prompts from your library</li>
+            <li>Create new prompts directly from conversations</li>
+            <li>Update existing prompts without leaving your AI tool</li>
+            <li>Organize prompts into folders programmatically</li>
+            <li>Search your entire prompt library from any MCP-compatible tool</li>
+        </ul>
+        <p>Learn more: <a href="mcp.html" style="color: #667eea; text-decoration: underline;">Prompteka MCP Integration Page</a></p>
+    </div>
+
+    <div id="mcp-how-install" class="faq-item">
+        <div class="faq-question">Q: How do I install the MCP server?</div>
+        <p>The Prompteka MCP server is available via npm. Here's how to set it up:</p>
+        <ol>
+            <li><strong>Install Node.js</strong> (if you don't have it): Download from <a href="https://nodejs.org" style="color: #667eea; text-decoration: underline;">nodejs.org</a></li>
+            <li><strong>Install the MCP server:</strong>
+                <div style="background: rgba(0, 0, 0, 0.05); padding: 12px; border-radius: 8px; margin: 12px 0; font-family: monospace; font-size: 0.9rem;">
+                    npm install -g prompteka-mcp
+                </div>
+            </li>
+            <li><strong>Configure your AI tool:</strong> Add the server to your MCP client's configuration (Claude Desktop, Cursor, etc.)</li>
+        </ol>
+        <p><strong>Detailed setup instructions:</strong> <a href="https://github.com/webdevguyrg/prompteka-mcp" style="color: #667eea; text-decoration: underline;">GitHub Repository README</a></p>
+    </div>
+
+    <div id="mcp-which-tools" class="faq-item">
+        <div class="faq-question">Q: Which AI tools support MCP?</div>
+        <p>MCP is an open standard, so any MCP-compatible tool can connect to Prompteka. Popular options include:</p>
+        <ul>
+            <li><strong>Claude Desktop</strong> (by Anthropic)</li>
+            <li><strong>Cursor</strong> (AI code editor)</li>
+            <li>Any other tool that implements the Model Context Protocol</li>
+        </ul>
+        <p>Check your AI tool's documentation to see if it supports MCP integration.</p>
+    </div>
+
+    <div id="mcp-troubleshooting" class="faq-item">
+        <div class="faq-question">Q: MCP integration not working?</div>
+        <p>If your AI tool can't connect to Prompteka via MCP, try these steps:</p>
+        <ol>
+            <li><strong>Verify installation:</strong> Run <code>prompteka-mcp --version</code> in Terminal to confirm it's installed</li>
+            <li><strong>Check configuration:</strong> Make sure your MCP client's config file points to the correct server path</li>
+            <li><strong>Restart your AI tool:</strong> Close and reopen Claude Desktop, Cursor, or your MCP client</li>
+            <li><strong>Check permissions:</strong> Ensure Prompteka has created the database at <code>~/Library/Application Support/prompteka/prompts.db</code></li>
+            <li><strong>Review logs:</strong> Check your MCP client's logs for connection errors</li>
+        </ol>
+        <p><strong>Still having issues?</strong> See the <a href="https://github.com/webdevguyrg/prompteka-mcp#troubleshooting" style="color: #667eea; text-decoration: underline;">MCP Troubleshooting Guide</a> or <a href="#contact" style="color: #667eea; text-decoration: underline;">contact support</a>.</p>
     </div>
 
     <h2 id="system-requirements">System Requirements</h2>

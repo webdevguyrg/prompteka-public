@@ -525,13 +525,13 @@
             <!-- Hero Section -->
             <section class="hero">
                 <div style="display: inline-block; background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px;">
-                    🚀 COMING IN PROMPTEKA 2.0
+                    🚀 AVAILABLE NOW (BETA)
                 </div>
                 <h1>Your Prompts. Always Available.</h1>
                 <p>Stop copy-pasting prompts. Give your AI tools instant access to your entire prompt library. Create, update, and organize prompts directly from your conversations—no manual work required.</p>
                 <div class="hero-cta">
                     <a href="#examples" class="btn btn-primary">See Examples</a>
-                    <a href="https://github.com/anthropics/mcp" class="btn btn-secondary">View MCP Spec →</a>
+                    <a href="https://modelcontextprotocol.io/" class="btn btn-secondary">View MCP Spec →</a>
                     <a href="https://github.com/webdevguyrg/prompteka-mcp" class="btn btn-secondary">GitHub Repo →</a>
                 </div>
             </section>
@@ -821,11 +821,21 @@ in my Archive folder"
                 </div>
             </section>
 
-            <!-- Coming Soon Section -->
+            <!-- Beta Release Section -->
             <section class="coming-soon">
-                <span class="coming-soon-badge">🚀 Coming in Prompteka 2.0</span>
-                <h2>Prompteka MCP - Future Release</h2>
-                <p>MCP integration is a major feature planned for <strong>Prompteka 2.0</strong>. It's currently in active development. This section outlines what's coming.</p>
+                <span class="coming-soon-badge">🚀 Available Now (Beta)</span>
+                <h2>Get Started with Prompteka MCP</h2>
+                <p>MCP integration is available now via npm. Install <code>prompteka-mcp</code> to connect your AI tools to your prompt library. Official release coming with <strong>Prompteka 2.0</strong>.</p>
+
+                <div style="margin-top: 40px; margin-bottom: 40px;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-primary);">Installation</h3>
+                    <div style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 24px;">
+                        <code style="font-size: 0.95rem; color: var(--text-primary);">npm install -g prompteka-mcp</code>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 0;">
+                        Then configure your MCP client (Claude Desktop, Cursor, etc.) to use the server. See the <a href="https://github.com/webdevguyrg/prompteka-mcp" style="color: var(--primary); text-decoration: underline;">GitHub repository</a> for detailed setup instructions.
+                    </p>
+                </div>
 
                 <div class="roadmap-items">
                     <div class="roadmap-item">
@@ -858,11 +868,7 @@ in my Archive folder"
                         <h4>Delete Safely</h4>
                         <p>Remove prompts or folders with atomic operations and proper cleanup.</p>
                     </div>
-                    <div class="roadmap-item">
-                        <div class="emoji">📤</div>
-                        <h4>Import & Export</h4>
-                        <p>Full backup and restore of your entire prompt library with hierarchy preservation.</p>
-                    </div>
+
                     <div class="roadmap-item">
                         <div class="emoji">🔐</div>
                         <h4>Complete Privacy</h4>
