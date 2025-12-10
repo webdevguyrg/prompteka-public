@@ -530,8 +530,8 @@
                 <div style="display: inline-block; background: rgba(99, 102, 241, 0.1); color: var(--primary); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px;">
                     🚀 COMING IN PROMPTEKA 2.0
                 </div>
-                <h1>Prompteka MCP</h1>
-                <p>Direct integration for Claude, LLMs, and CLI tools. Access your prompt library programmatically with a standardized, powerful protocol.</p>
+                <h1>Your Prompts. Claude's Memory.</h1>
+                <p>Stop copy-pasting prompts. Give Claude instant access to your entire prompt library. Create, update, and organize prompts directly from Claude conversations—no manual work required.</p>
                 <div class="hero-cta">
                     <a href="#examples" class="btn btn-primary">See Examples</a>
                     <a href="https://github.com/anthropics/mcp" class="btn btn-secondary">View MCP Spec →</a>
@@ -572,6 +572,53 @@
                         <div class="benefit-icon">🔒</div>
                         <h3>Privacy First</h3>
                         <p>All data stays on your machine. The MCP server runs locally. Your prompts never leave your computer.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emotional Hook Section -->
+            <section style="padding: 80px 0; background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(99, 102, 241, 0.08) 100%); border-radius: var(--radius-xl); margin-bottom: 120px; text-align: center;">
+                <div class="container">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 24px; color: var(--text-primary);">What if Claude could remember your prompts?</h2>
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                        Imagine never losing a prompt again. Never spending time searching through old conversations. Never copy-pasting the same prompt for the hundredth time. With Prompteka MCP, your prompt library becomes Claude's instant reference—a true second brain that learns and adapts with your workflows.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Term Definitions Section -->
+            <section style="padding: 80px 0; margin-bottom: 120px;">
+                <div class="container">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+                        <div style="padding: 28px; background: var(--bg-light); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.1); transition: all 0.3s ease;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <span style="font-size: 1.5rem;">💡</span>
+                                <h3 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin: 0;">MCP</h3>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                                <strong>Model Context Protocol</strong> — A bridge that lets AI tools like Claude access your data and run commands. Think of it as giving Claude permission and instructions to interact with your prompt library.
+                            </p>
+                        </div>
+
+                        <div style="padding: 28px; background: var(--bg-light); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.1); transition: all 0.3s ease;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <span style="font-size: 1.5rem;">🔌</span>
+                                <h3 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin: 0;">Integration</h3>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                                The technical connection that allows Claude and other AI tools to access Prompteka. You don't need to think about it—it just works seamlessly in the background.
+                            </p>
+                        </div>
+
+                        <div style="padding: 28px; background: var(--bg-light); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.1); transition: all 0.3s ease;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <span style="font-size: 1.5rem;">🧠</span>
+                                <h3 style="font-size: 1rem; font-weight: 700; color: var(--primary); margin: 0;">Second Brain</h3>
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0; line-height: 1.6;">
+                                Claude using your prompt library as memory—remembering your best prompts, preferences, and workflows so you don't have to repeat yourself.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -685,27 +732,60 @@ $ prompteka delete-folder "id" \<br>
                 </div>
 
                 <div style="background: var(--bg-light); padding: 32px; border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.2);">
-                    <h3 style="margin-bottom: 16px; color: var(--text-primary);">What You Can't Do Without MCP</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
-                        <div>
-                            <p style="margin: 0; color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">❌ Without MCP</p>
-                            <ul style="color: var(--text-secondary); margin: 0; padding-left: 20px;">
-                                <li>Copy/paste prompts manually</li>
-                                <li>Describe your library each session</li>
-                                <li>Forget what you stored last week</li>
-                                <li>No two-way sync</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p style="margin: 0; color: var(--primary); font-weight: 600; margin-bottom: 8px;">✅ With MCP</p>
-                            <ul style="color: var(--text-secondary); margin: 0; padding-left: 20px;">
-                                <li>Claude searches your library</li>
-                                <li>Knows your schema automatically</li>
-                                <li>Creates/updates prompts directly</li>
-                                <li>Works like a "second brain"</li>
-                            </ul>
-                        </div>
+                    <h3 style="margin-bottom: 24px; color: var(--text-primary);">Feature Comparison at a Glance</h3>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid rgba(99, 102, 241, 0.2);">
+                                    <th style="text-align: left; padding: 12px 0; color: var(--text-primary); font-weight: 700;">Feature</th>
+                                    <th style="text-align: center; padding: 12px 0; color: var(--primary); font-weight: 700;">MCP</th>
+                                    <th style="text-align: center; padding: 12px 0; color: var(--text-secondary); font-weight: 700;">Skills</th>
+                                    <th style="text-align: center; padding: 12px 0; color: var(--text-secondary); font-weight: 700;">Hooks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid rgba(99, 102, 241, 0.1);">
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Live Data Access</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(99, 102, 241, 0.1);">
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Query Your Prompts</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(99, 102, 241, 0.1);">
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Interactive Conversations</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(99, 102, 241, 0.1);">
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Procedural Knowledge</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgba(99, 102, 241, 0.1);">
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Automated Workflows</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 500;">Real-Time Sync</td>
+                                    <td style="text-align: center; color: var(--primary); font-weight: 700;">✅</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                    <td style="text-align: center; color: var(--text-light);">—</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                    <p style="margin-top: 24px; font-size: 0.9rem; color: var(--text-secondary); text-align: center;">
+                        <strong>The bottom line:</strong> MCP fills a gap that Skills and Hooks can't. You need all three for a complete AI workflow.
+                    </p>
                 </div>
             </section>
 
