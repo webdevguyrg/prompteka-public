@@ -627,63 +627,56 @@
 
                 <div class="example-grid">
                     <div class="example-card">
-                        <h4>⚡ Quick Prompt Execution</h4>
-                        <p>Instantly retrieve and execute any prompt from your library without leaving your AI tool or terminal.</p>
+                        <h4>⚡ Find and Use Prompts</h4>
+                        <p>Search your library and instantly retrieve any prompt you need without switching windows.</p>
                         <div class="example-code">
-% prompteka exec "Code Review"<br>
-→ Loads your "Code Review"<br>
-   prompt and passes it to your AI tool
+"Find my Code Review prompt<br>
+and use it for this code"
                         </div>
                     </div>
 
                     <div class="example-card">
-                        <h4>📚 Access Prompt History</h4>
-                        <p>Search through your entire prompt library and reference previous prompts in your current conversation.</p>
+                        <h4>📚 List My Prompts</h4>
+                        <p>Get a quick overview of your entire prompt library organized by folder.</p>
                         <div class="example-code">
-$ prompteka search "API design"<br>
-→ Returns matching prompts with<br>
-   metadata ready to use
+"What prompts do I have<br>
+in my Engineering folder?"
                         </div>
                     </div>
 
                     <div class="example-card">
-                        <h4>📁 Organize with Folders</h4>
-                        <p>Create and manage folder hierarchies. Group prompts logically and keep everything organized.</p>
+                        <h4>📁 Create Folders</h4>
+                        <p>Create new folders and organize your prompts on the fly during conversations.</p>
                         <div class="example-code">
-$ prompteka create-folder \<br>
-  "AI Engineering/Agents"<br>
-→ New folder created with<br>
-   full parent hierarchy support
+"Make a folder called<br>
+'Customer Support' for me"
                         </div>
                     </div>
 
                     <div class="example-card">
-                        <h4>➕ Add New Prompts</h4>
-                        <p>Create new prompts programmatically from your tools. Capture and save successful patterns instantly.</p>
+                        <h4>➕ Save Prompts</h4>
+                        <p>Save successful patterns and prompts directly from your conversation without interruption.</p>
                         <div class="example-code">
-$ prompteka create-prompt \<br>
-  --title "New Pattern" \<br>
-  --content "..." --folder-id "uuid"
+"Save this as a prompt in my<br>
+Code Review folder with 📝"
                         </div>
                     </div>
 
                     <div class="example-card">
-                        <h4>✏️ Update Existing</h4>
-                        <p>Modify prompts, change properties, reorganize folders—all with atomic transaction safety.</p>
+                        <h4>✏️ Update Prompts</h4>
+                        <p>Refine existing prompts and reorganize them as your needs evolve.</p>
                         <div class="example-code">
-$ prompteka update-prompt "id" \<br>
-  --title "Updated Title" \<br>
-  --emoji "🚀" --color "blue"
+"Update my API Design prompt<br>
+and move it to Templates"
                         </div>
                     </div>
 
                     <div class="example-card">
                         <h4>🗑️ Clean Up</h4>
-                        <p>Delete prompts or entire folders with single commands. Recursive deletion with proper safety checks.</p>
+                        <p>Delete outdated prompts or folders to keep your library focused.</p>
                         <div class="example-code">
-$ prompteka delete-prompt "id"<br>
-$ prompteka delete-folder "id" \<br>
-  --recursive
+"Delete all old prompts<br>
+in my Archive folder"
                         </div>
                     </div>
                 </div>
