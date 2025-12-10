@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompteka MCP - AI Tool Integration Protocol</title>
+    <meta name="description" content="Prompteka MCP: Direct integration for Claude, LLMs, and CLI tools. Access your prompt library with a standardized protocol. Execute, create, and manage prompts programmatically.">
+    <meta name="keywords" content="MCP, Model Context Protocol, Claude, prompt integration, AI tools, CLI, API, prompt management">
+    <link rel="canonical" href="https://prompteka.net/mcp.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prompteka.net/mcp.html">
+    <meta property="og:title" content="Prompteka MCP - Unified Prompt Access Protocol">
+    <meta property="og:description" content="Direct integration for Claude, LLMs, and CLI tools. Access your prompt library programmatically.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables - Brand Colors */
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #818cf8;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --gradient-start: #6366f1;
+            --gradient-end: #8b5cf6;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* Reset & Base */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .nav-logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--bg-gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #5558e3 0%, #6d43a0 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.05);
+            border-color: var(--primary);
+        }
+
+        /* Content */
+        .content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border-radius: var(--radius-xl);
+            margin-bottom: 120px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: var(--bg-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Benefits Grid */
+        .benefits {
+            margin-bottom: 120px;
+        }
+
+        .benefits h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .benefit-card {
+            padding: 32px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Examples Section */
+        .examples {
+            margin-bottom: 120px;
+        }
+
+        .examples h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .example-card {
+            padding: 24px;
+            background: white;
+            border: 2px solid var(--bg-light);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+
+        .example-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .example-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .example-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .example-code {
+            background: var(--bg-light);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.85rem;
+            color: var(--primary);
+            margin-top: 12px;
+            overflow-x: auto;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon {
+            padding: 80px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.08) 100%);
+            border-radius: var(--radius-xl);
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            margin-bottom: 120px;
+            text-align: center;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--bg-gradient);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .coming-soon h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .coming-soon p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .roadmap-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .roadmap-item {
+            padding: 20px;
+            background: white;
+            border-radius: var(--radius);
+            text-align: left;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .roadmap-item .emoji {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .roadmap-item h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .roadmap-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        /* Architecture Section */
+        .architecture {
+            margin-bottom: 120px;
+        }
+
+        .architecture h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .arch-card {
+            padding: 40px;
+            background: var(--bg-light);
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .arch-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .arch-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .arch-card ul {
+            margin: 16px 0 0 20px;
+            color: var(--text-secondary);
+        }
+
+        .arch-card li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border-radius: var(--radius-xl);
+            margin-bottom: 40px;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .benefits h2,
+            .examples h2,
+            .architecture h2 {
+                font-size: 1.8rem;
+            }
+
+            .coming-soon {
+                padding: 40px 24px;
+            }
+
+            .coming-soon h2 {
+                font-size: 1.6rem;
+            }
+
+            .nav-links {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">
+                    <img src="icon.png" alt="Prompteka">
+                    <span>Prompteka</span>
+                </a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="mcp.html" class="active">MCP</a>
+                    <a href="support.html">Support</a>
+                    <a href="changelog.html">Changelog</a>
+                    <a href="https://apps.apple.com/app/prompteka/id6739503603" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Prompteka MCP</h1>
+                <p>Direct integration for Claude, LLMs, and CLI tools. Access your prompt library programmatically with a standardized, powerful protocol.</p>
+                <div class="hero-cta">
+                    <a href="#examples" class="btn btn-primary">See Examples</a>
+                    <a href="https://github.com/anthropics/mcp" class="btn btn-secondary">View MCP Spec →</a>
+                    <a href="https://github.com/oraios/prompteka-mcp" class="btn btn-secondary">GitHub Repo →</a>
+                </div>
+            </section>
+
+            <!-- Benefits Section -->
+            <section class="benefits">
+                <h2>Why MCP Matters</h2>
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔗</div>
+                        <h3>Unified Integration</h3>
+                        <p>One protocol for any LLM or AI tool. Claude, ChatGPT, local models—if it supports MCP, it works with Prompteka.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h3>Direct Access</h3>
+                        <p>Bypass copying and pasting. Your AI tools get instant access to your entire prompt library in context.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🛡️</div>
+                        <h3>Safe & Transactional</h3>
+                        <p>ACID transactions with automatic retry logic. Your data stays consistent no matter what.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📱</div>
+                        <h3>CLI-First Design</h3>
+                        <p>Built for developers. Use from terminal, scripts, and automation tools with clean, predictable APIs.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚀</div>
+                        <h3>Always Available</h3>
+                        <p>Lightweight, always-on server. No cloud dependencies, no rate limits, complete offline support.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔒</div>
+                        <h3>Privacy First</h3>
+                        <p>All data stays on your machine. The MCP server runs locally. Your prompts never leave your computer.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples Section -->
+            <section class="examples" id="examples">
+                <h2>Real-World Examples</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px; font-size: 1.1rem;">See what's possible with Prompteka MCP</p>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <h4>⚡ Quick Prompt Execution</h4>
+                        <p>Instantly retrieve and execute any prompt from your library without leaving Claude or your terminal.</p>
+                        <div class="example-code">
+% prompteka exec "Code Review"<br>
+→ Loads your "Code Review"<br>
+   prompt and passes it to Claude
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>📚 Access Prompt History</h4>
+                        <p>Search through your entire prompt library and reference previous prompts in your current conversation.</p>
+                        <div class="example-code">
+$ prompteka search "API design"<br>
+→ Returns matching prompts with<br>
+   metadata ready to use
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>📁 Organize with Folders</h4>
+                        <p>Create and manage folder hierarchies. Group prompts logically and keep everything organized.</p>
+                        <div class="example-code">
+$ prompteka create-folder \<br>
+  "AI Engineering/Agents"<br>
+→ New folder created with<br>
+   full parent hierarchy support
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>➕ Add New Prompts</h4>
+                        <p>Create new prompts programmatically from your tools. Capture and save successful patterns instantly.</p>
+                        <div class="example-code">
+$ prompteka create-prompt \<br>
+  --title "New Pattern" \<br>
+  --content "..." --folder-id "uuid"
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>✏️ Update Existing</h4>
+                        <p>Modify prompts, change properties, reorganize folders—all with atomic transaction safety.</p>
+                        <div class="example-code">
+$ prompteka update-prompt "id" \<br>
+  --title "Updated Title" \<br>
+  --emoji "🚀" --color "blue"
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h4>🗑️ Clean Up</h4>
+                        <p>Delete prompts or entire folders with single commands. Recursive deletion with proper safety checks.</p>
+                        <div class="example-code">
+$ prompteka delete-prompt "id"<br>
+$ prompteka delete-folder "id" \<br>
+  --recursive
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Architecture Section -->
+            <section class="architecture">
+                <h2>How It Works</h2>
+
+                <div class="arch-card">
+                    <h3>🔑 Standard Protocol</h3>
+                    <p>Prompteka implements the <strong>Model Context Protocol (MCP)</strong>—a standardized specification by Anthropic for connecting LLMs and tools. This means:</p>
+                    <ul>
+                        <li>Works with any MCP-compatible client (Claude, other LLMs, CLI tools)</li>
+                        <li>No vendor lock-in or custom integrations needed</li>
+                        <li>Language and platform agnostic</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <h3>⚙️ Persistent Service</h3>
+                    <p>Unlike simple hooks or scripts, the Prompteka MCP server runs continuously with:</p>
+                    <ul>
+                        <li>Persistent SQLite database connection</li>
+                        <li>Transaction-based consistency</li>
+                        <li>Automatic retry and error recovery</li>
+                        <li>WAL (Write-Ahead Logging) for safe concurrent access</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <h3>🛠️ Full CRUD Operations</h3>
+                    <p>Complete control over your prompt library:</p>
+                    <ul>
+                        <li><strong>Create</strong>: New prompts with metadata (emoji, color, folders)</li>
+                        <li><strong>Read</strong>: Search, filter, and retrieve prompts instantly</li>
+                        <li><strong>Update</strong>: Modify any prompt property atomically</li>
+                        <li><strong>Delete</strong>: Remove prompts or entire folder hierarchies safely</li>
+                    </ul>
+                </div>
+
+                <div class="arch-card">
+                    <h3>📦 Backup & Restore</h3>
+                    <p>Import/export your entire prompt library with full hierarchy preservation:</p>
+                    <ul>
+                        <li>Export as JSON for version control</li>
+                        <li>Backup and restore with overwrite options</li>
+                        <li>Folder structure and metadata fully preserved</li>
+                        <li>Perfect for migration, archiving, or disaster recovery</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Coming Soon Section -->
+            <section class="coming-soon">
+                <span class="coming-soon-badge">🚀 Coming Soon</span>
+                <h2>Access Prompteka MCP Today</h2>
+                <p>The Prompteka MCP server is actively being developed and tested. Early access is available now. Get started with your own prompt library integration.</p>
+
+                <div class="roadmap-items">
+                    <div class="roadmap-item">
+                        <div class="emoji">⚡</div>
+                        <h4>Quick Execution</h4>
+                        <p>Execute any prompt from your library instantly. Perfect for Claude integration and CLI workflows.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">🔍</div>
+                        <h4>Full-Text Search</h4>
+                        <p>Search across all your prompts by title, content, and metadata. Find exactly what you need.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">📁</div>
+                        <h4>Folder Management</h4>
+                        <p>Create nested folder structures. Organize prompts logically and access by hierarchy.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">➕</div>
+                        <h4>Create Prompts</h4>
+                        <p>Add new prompts programmatically with emoji, colors, and folder organization.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">✏️</div>
+                        <h4>Update Operations</h4>
+                        <p>Modify prompt content, properties, and organization with full transaction safety.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">🗑️</div>
+                        <h4>Delete Safely</h4>
+                        <p>Remove prompts or folders with atomic operations and proper cleanup.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">📤</div>
+                        <h4>Import & Export</h4>
+                        <p>Full backup and restore of your entire prompt library with hierarchy preservation.</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <div class="emoji">🔐</div>
+                        <h4>Complete Privacy</h4>
+                        <p>All operations stay local. No cloud, no tracking, no data collection ever.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(99, 102, 241, 0.1);">
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px;">
+                        Ready to integrate Prompteka with your AI tools? Check out the official MCP specification and our GitHub repository for implementation details.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Final CTA -->
+            <section class="final-cta">
+                <h2>Get Started with Prompteka MCP</h2>
+                <p>Download the Prompteka app and explore the MCP integration documentation to connect your tools and start building powerful AI workflows.</p>
+                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://apps.apple.com/app/prompteka/id6739503603" class="btn btn-primary">Download on Mac App Store</a>
+                    <a href="https://github.com/oraios/prompteka-mcp" class="btn btn-secondary">View MCP Implementation →</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 GrowTech Development, LLC. Prompteka is free and open-source.</p>
+            <p>
+                <a href="index.html">Home</a> •
+                <a href="mcp.html">MCP</a> •
+                <a href="support.html">Support</a> •
+                <a href="privacy-policy.html">Privacy</a> •
+                <a href="https://github.com/oraios/prompteka">GitHub</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
