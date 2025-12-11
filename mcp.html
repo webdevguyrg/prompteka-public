@@ -847,8 +847,14 @@ in my Archive folder"
 
                 <div style="margin-top: 40px; margin-bottom: 40px;">
                     <h3 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-primary);">Installation</h3>
-                    <div style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 24px;">
+                    <div style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
                         <code style="font-size: 0.95rem; color: var(--text-primary);">npm install -g prompteka-mcp</code>
+                        <button onclick="copyToClipboard('npm install -g prompteka-mcp')" style="background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-secondary); hover: color: var(--primary); transition: color 0.2s;" title="Copy to clipboard">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                        </button>
                     </div>
                     <p style="color: var(--text-secondary); margin-bottom: 0;">
                         Then configure your MCP client (Claude Desktop, Cursor, etc.) to use the server. See the <a href="https://github.com/webdevguyrg/prompteka-mcp" style="color: var(--primary); text-decoration: underline;">GitHub repository</a> for detailed setup instructions.
@@ -931,5 +937,21 @@ in my Archive folder"
             </p>
         </div>
     </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback
+                const button = event.target.closest('button');
+                const originalColor = button.style.color;
+                button.style.color = 'var(--primary)';
+                setTimeout(() => {
+                    button.style.color = originalColor;
+                }, 1500);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
 </body>
 </html>
