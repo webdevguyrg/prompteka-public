@@ -531,7 +531,7 @@
                 <p>Stop copy-pasting prompts. Give your AI tools instant access to your entire prompt library. Create, update, and organize prompts directly from your conversations—no manual work required.</p>
                 <div class="hero-cta">
                     <a href="#examples" class="btn btn-primary">See Examples</a>
-                    <a href="https://modelcontextprotocol.io/" class="btn btn-secondary">View MCP Spec →</a>
+                    <a href="#get-started" class="btn btn-secondary">Install MCP →</a>
                     <a href="https://github.com/webdevguyrg/prompteka-mcp" class="btn btn-secondary">GitHub Repo →</a>
                 </div>
             </section>
@@ -840,21 +840,24 @@ in my Archive folder"
             </section>
 
             <!-- Get Started Section -->
-            <section class="coming-soon">
+            <section class="coming-soon" id="get-started">
                 <span class="coming-soon-badge">🚀 Available Now</span>
                 <h2>Get Started with Prompteka MCP</h2>
                 <p>MCP integration is available now via npm. Install <code>prompteka-mcp</code> to connect your AI tools to your prompt library.</p>
 
                 <div style="margin-top: 40px; margin-bottom: 40px;">
                     <h3 style="font-size: 1.3rem; margin-bottom: 24px; color: var(--text-primary);">Installation</h3>
-                    <div style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: rgba(0, 0, 0, 0.05); padding: 20px; border-radius: 12px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; position: relative;">
                         <code style="font-size: 0.95rem; color: var(--text-primary);">npm install -g prompteka-mcp</code>
-                        <button onclick="copyToClipboard('npm install -g prompteka-mcp')" style="background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-secondary); hover: color: var(--primary); transition: color 0.2s;" title="Copy to clipboard">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
-                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-                            </svg>
-                        </button>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span id="copy-feedback" style="font-size: 0.85rem; color: var(--primary); font-weight: 500; opacity: 0; transition: opacity 0.3s; pointer-events: none;">✓ Copied!</span>
+                            <button onclick="copyToClipboard('npm install -g prompteka-mcp')" style="background: none; border: none; cursor: pointer; padding: 8px; color: var(--text-secondary); hover: color: var(--primary); transition: color 0.2s;" title="Copy to clipboard">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <p style="color: var(--text-secondary); margin-bottom: 0;">
                         Then configure your MCP client (Claude Desktop, Cursor, etc.) to use the server. See the <a href="https://github.com/webdevguyrg/prompteka-mcp" style="color: var(--primary); text-decoration: underline;">GitHub repository</a> for detailed setup instructions.
@@ -941,13 +944,14 @@ in my Archive folder"
     <script>
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
-                // Visual feedback
-                const button = event.target.closest('button');
-                const originalColor = button.style.color;
-                button.style.color = 'var(--primary)';
+                // Show feedback label
+                const feedback = document.getElementById('copy-feedback');
+                feedback.style.opacity = '1';
+
+                // Hide after 2 seconds
                 setTimeout(() => {
-                    button.style.color = originalColor;
-                }, 1500);
+                    feedback.style.opacity = '0';
+                }, 2000);
             }).catch(err => {
                 console.error('Failed to copy:', err);
             });
